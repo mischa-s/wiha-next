@@ -19,7 +19,6 @@ export async function fetchEntries() {
 export async function fetchEntry(id) {
   try {
     const entry = await client.getEntry(id);
-    console.log(entry)
     if (entry) return entry;
   } catch (error) {
     console.error(error);

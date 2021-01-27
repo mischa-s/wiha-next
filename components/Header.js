@@ -53,15 +53,15 @@ const menuItems = [
   {
     Leagues: [
       {
-        link: "/frozen",
+        link: "/play/frozen",
         label: "Frozen Fours",
       },
       {
-        link: "/bear",
+        link: "/play/bear",
         label: "Bear League",
       },
       {
-        link: "/youth",
+        link: "/play/youth",
         label: "Youth",
       },
     ],
@@ -109,7 +109,7 @@ const DesktopNavWrapper = styled.div`
 const HeroImage = React.forwardRef(({ onClick, href }, ref) => {
   return (
     <a href={href} onClick={onClick} ref={ref}>
-      <Image src="/../public/logo.png" width="125" height="125" alt="WIHA" />
+      <Image src="/wiha-logos/logo.png" width="125" height="125" alt="WIHA" />
     </a>
   );
 });
