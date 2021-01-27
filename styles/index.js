@@ -40,6 +40,38 @@ const Button = {
   },
 };
 
+const Input = {
+  variants: {
+    wiha: {
+      field: {
+        border: "2px solid",
+        borderColor: "transparent",
+        _hover: {
+          borderColor: "wiha.500",
+        },
+        _focus: {
+          borderColor: "wiha.500",
+        },
+        _readOnly: {
+          boxShadow: "none !important",
+          userSelect: "all",
+        },
+        _disabled: {
+          opacity: 0.4,
+          cursor: "not-allowed",
+        },
+        _invalid: {
+          borderColor: "red.500",
+        },
+      },
+      addon: {
+        border: "2px solid",
+        borderColor: "transparent",
+      },
+    },
+  },
+};
+
 const Menu = {
   baseStyle: {
     list: {
@@ -49,12 +81,17 @@ const Menu = {
 };
 
 const overrides = {
-  //   styles,
-  //   borders,
-  // Other foundational style overrides go here
+  styles: {
+    global: {
+      body: {
+        bg: "blackAlpha.100",
+      },
+    },
+  },
   colors,
   components: {
     Button,
+    Input,
     Menu,
   },
 };
