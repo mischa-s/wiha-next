@@ -116,7 +116,7 @@ export default function Home({ fields, playTable }) {
         width="50em"
         alignItems="center"
         maxWidth="100%"
-        margin="2em auto 3em auto"
+        margin="3em auto 7em auto"
       >
         <Heading as="h2" size="lg" fontWeight={500} textAlign={"center"} my={5}>
           {section1Title}
