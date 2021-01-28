@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
-import styled from "@emotion/styled";
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import styled from '@emotion/styled';
 import {
   Button,
   Heading,
@@ -10,9 +10,9 @@ import {
   Textarea,
   FormControl,
   FormLabel,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
-import Layout from "../../components/Layout";
+import Layout from '../../components/Layout';
 // import { GoogleMap } from "../../components/Map";
 
 const ContentWrapper = styled.section`
@@ -31,8 +31,8 @@ const ContentWrapper = styled.section`
 
 function encode(data) {
   return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
 }
 
 export default function Index() {
@@ -47,15 +47,15 @@ export default function Index() {
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        "form-name": form.getAttribute("name"),
+        'form-name': form.getAttribute('name'),
         ...fields,
       }),
     })
-      .then(() => router.push(form.getAttribute("action")))
+      .then(() => router.push(form.getAttribute('action')))
       .catch((error) => alert(error));
   }
 
@@ -84,7 +84,8 @@ export default function Index() {
           <input type="hidden" name="form-name" value="contact" />
           <div hidden>
             <label>
-              Don’t fill this out:{" "}
+              Don’t fill this out:
+              {' '}
               <input name="bot-field" onChange={handleChange} />
             </label>
           </div>
@@ -118,11 +119,11 @@ export default function Index() {
                 className="textarea"
                 name="message"
                 onChange={handleChange}
-                id={"message"}
+                id="message"
                 required
               />
             </FormControl>
-            <Flex mt="4" justify={"center"}>
+            <Flex mt="4" justify="center">
               <Button size="lg" variant="wiha" type="submit">
                 Send
               </Button>

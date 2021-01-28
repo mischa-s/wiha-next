@@ -1,8 +1,8 @@
-import Link from "next/link";
-import styled from "@emotion/styled";
-import { Button } from "@chakra-ui/react";
+import Link from 'next/link';
+import styled from '@emotion/styled';
+import { Button, Link as ExternalLink } from '@chakra-ui/react';
 
-export default function Footer () {
+export default function Footer() {
   const FooterWrapper = styled.footer`
     display: flex;
     height: fit-content;
@@ -21,7 +21,7 @@ export default function Footer () {
 
   const SocialIcon = styled.img`
     background: #fef001;
-    padding: .5em;
+    padding: 0.5em;
     width: 2.5em;
     height: 2.5em;
   `;
@@ -43,8 +43,8 @@ export default function Footer () {
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
-    margin-top: .75em;
-    margin-bottom: .5em;
+    margin-top: 0.75em;
+    margin-bottom: 0.5em;
     width: 50%;
     min-width: 23em;
     border: 2px solid #fef001;
@@ -57,45 +57,68 @@ export default function Footer () {
       <LinksWrapper>
         <FooterPageLinks>
           <Link href="/">
-            <Button variantColor="yellow" variant="link">Home</Button>
+            <Button colorScheme="wiha" variant="link">
+              Home
+            </Button>
           </Link>
           <Link href="/play">
-            <Button variantColor="yellow" variant="link">Play</Button>
+            <Button colorScheme="wiha" variant="link">
+              Play
+            </Button>
           </Link>
           <Link href="/about">
-            <Button variantColor="yellow" variant="link">About</Button>
+            <Button colorScheme="wiha" variant="link">
+              About
+            </Button>
           </Link>
           <Link href="/blog">
-            <Button variantColor="yellow" variant="link">Blog</Button>
+            <Button colorScheme="wiha" variant="link">
+              Blog
+            </Button>
           </Link>
           <Link href="/contact">
-            <Button variantColor="yellow" variant="link">Contact</Button>
+            <Button colorScheme="wiha" variant="link">
+              Contact
+            </Button>
           </Link>
         </FooterPageLinks>
 
         <SocialLinks>
-          <a title="facebook" href="https://www.facebook.com/wellingtonicehockeyassociation/">
+          <ExternalLink
+            title="facebook"
+            href="https://www.facebook.com/wellingtonicehockeyassociation/"
+          >
             <SocialIcon src="/social-icons/facebook.svg" alt="Facebook" />
-          </a>
-          <a title="twitter" href="https://twitter.com">
-            <SocialIcon className="fas fa-lg" src="/social-icons/twitter.svg" alt="Twitter" />
-          </a>
-          <a title="instagram" href="https://www.instagram.com/wellingtonicehockey/">
+          </ExternalLink>
+          <ExternalLink title="twitter" href="https://twitter.com">
+            <SocialIcon
+              className="fas fa-lg"
+              src="/social-icons/twitter.svg"
+              alt="Twitter"
+            />
+          </ExternalLink>
+          <ExternalLink
+            title="instagram"
+            href="https://www.instagram.com/wellingtonicehockey/"
+          >
             <SocialIcon src="/social-icons/instagram.svg" alt="Instagram" />
-          </a>
-          <a title="youtube" href="https://www.youtube.com/channel/UCzk1ai4cv3z95OmquetMujg">
+          </ExternalLink>
+          <ExternalLink
+            title="youtube"
+            href="https://www.youtube.com/channel/UCzk1ai4cv3z95OmquetMujg"
+          >
             <SocialIcon src="/social-icons/youtube.svg" alt="Youtube" />
-          </a>
-          <a
+          </ExternalLink>
+          <ExternalLink
             title="github"
             href="https://github.com/mischa-s/wiha"
             target="_blank"
             rel="noopener noreferrer"
           >
             <SocialIcon src="/social-icons/github.svg" alt="Github" />
-          </a>
+          </ExternalLink>
         </SocialLinks>
       </LinksWrapper>
     </FooterWrapper>
   );
-};
+}

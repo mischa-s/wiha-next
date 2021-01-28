@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { forwardRef, useRef } from 'react';
 
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 import {
   IconButton,
@@ -25,44 +24,44 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-} from "@chakra-ui/react";
-import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
-import styled from "@emotion/styled";
+} from '@chakra-ui/react';
+import { ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
+import styled from '@emotion/styled';
 
 const menuItems = [
   {
-    link: "/play",
-    label: "Play",
+    link: '/play',
+    label: 'Play',
   },
   {
-    link: "/seals",
-    label: "Seals",
+    link: '/seals',
+    label: 'Seals',
   },
   {
-    link: "/about",
-    label: "About",
+    link: '/about',
+    label: 'About',
   },
   {
-    link: "/blog",
-    label: "Blog",
+    link: '/blog',
+    label: 'Blog',
   },
   {
-    link: "/contact",
-    label: "Contact",
+    link: '/contact',
+    label: 'Contact',
   },
   {
     Leagues: [
       {
-        link: "/play/frozen",
-        label: "Frozen Fours",
+        link: '/play/frozen',
+        label: 'Frozen Fours',
       },
       {
-        link: "/play/bear",
-        label: "Bear League",
+        link: '/play/bear',
+        label: 'Bear League',
       },
       {
-        link: "/play/youth",
-        label: "Youth",
+        link: '/play/youth',
+        label: 'Youth',
       },
     ],
   },
@@ -106,22 +105,21 @@ const DesktopNavWrapper = styled.div`
   }
 `;
 
-const HeroImage = React.forwardRef(({ onClick, href }, ref) => {
-  return (
-    <a href={href} onClick={onClick} ref={ref}>
-      <Image src="/wiha-logos/logo.png" width="125" height="125" alt="WIHA" />
-    </a>
-  );
-});
-
 export default function Header() {
   return (
     <nav role="navigation" aria-label="main-navigation">
       <NavbarWrapper>
         <NavBarContent>
           <NavLogo>
-            <Link passHref href="/" title="Logo">
-              <HeroImage />
+            <Link passHref href="/">
+              <a>
+                <Image
+                  src="/wiha-logos/logo.png"
+                  width="125"
+                  height="125"
+                  alt="WIHA"
+                />
+              </a>
             </Link>
           </NavLogo>
           <DesktopNav />
@@ -134,7 +132,7 @@ export default function Header() {
 
 function MobileNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
+  const btnRef = useRef();
 
   return (
     <MobileNavWrapper>
@@ -186,8 +184,8 @@ function MobileNavItem({ item }) {
           p="5"
           w="100%"
           transition="all 0.2s"
-          _focus={{ boxShadow: "outline" }}
-          _hover={{ bg: "blackAlpha.50" }}
+          _focus={{ boxShadow: 'outline' }}
+          _hover={{ bg: 'blackAlpha.50' }}
         >
           {label}
         </Box>
@@ -228,22 +226,22 @@ function DesktopNav() {
             <ChevronDownIcon />
           </MenuButton>
           <MenuList>
-            <Link href={"/frozen"}>
+            <Link href={'/frozen'}>
               <MenuItem>Frozen Fours</MenuItem>
             </Link>
-            <Link href={"/bear"}>
+            <Link href={'/bear'}>
               <MenuItem>Bear League</MenuItem>
             </Link>
-            <Link href={"/youth"}>
+            <Link href={'/youth'}>
               <MenuItem>Youth</MenuItem>
             </Link>
           </MenuList>
         </Menu>
-        <NavButton link={"/play"} text={"Play"} />
-        <NavButton link={"/about"} text={"About"} />
-        <NavButton link={"/seals"} text={"Seals"} />
-        <NavButton link={"/blog"} text={"Blog"} />
-        <NavButton link={"/contact"} text={"Contact"} />
+        <NavButton link={'/play'} text={'Play'} />
+        <NavButton link={'/about'} text={'About'} />
+        <NavButton link={'/seals'} text={'Seals'} />
+        <NavButton link={'/blog'} text={'Blog'} />
+        <NavButton link={'/contact'} text={'Contact'} />
       </NavItems>
     </DesktopNavWrapper>
   );

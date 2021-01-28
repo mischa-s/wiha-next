@@ -1,21 +1,13 @@
-import Head from "next/head";
-import InternalLink from "next/link";
-import { Button, Link as ExternalLink } from "@chakra-ui/react";
+import Head from 'next/head';
+import { GetStaticProps } from 'next';
+import InternalLink from 'next/link';
+import { Button, Link as ExternalLink } from '@chakra-ui/react';
 
-import PlayTable from "../../components/PlayTable";
-import Layout from "../../components/Layout";
-import { fetchEntry } from "../../utils/contentfulPages";
+import PlayTable from '../components/PlayTable';
+import Layout from '../components/Layout';
+import { fetchEntry } from '../utils/contentfulPages';
 
 export default function Play({ playTable }) {
-  //   const {
-  // title,
-  // heroImage,
-  // section1Title,
-  // section1Content,
-  // section2Title,
-  // section2Content,
-  //   } = fields;
-
   return (
     <Layout>
       <Head>
@@ -39,12 +31,12 @@ export default function Play({ playTable }) {
   );
 }
 
-export async function getStaticProps() {
-  const playTable = await fetchEntry("2OomGmziRfIZwJmUyKwPA3");
+export const getStaticProps: GetStaticProps = async (context) => {
+  const playTable = await fetchEntry('2OomGmziRfIZwJmUyKwPA3');
 
   return {
     props: {
       playTable: playTable.fields.playTable,
     },
   };
-}
+};

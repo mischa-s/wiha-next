@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { Button, Flex, Heading } from "@chakra-ui/react";
-import styled from "@emotion/styled";
+import Link from 'next/link';
+import { Button, Flex, Heading } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 
-import Layout from "../../components/Layout";
+import Layout from '../../components/Layout';
 
 const ContentWrapper = styled.section`
   display: flex;
@@ -39,7 +39,7 @@ export default function Thanks() {
             days
           </p>
 
-          <Flex mt="4" justify={"center"}>
+          <Flex mt="4" justify="center">
             <Link href="/">
               <Button size="lg" variant="wiha">
                 Return to home page
