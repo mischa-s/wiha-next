@@ -1,8 +1,12 @@
-import Head from "next/head";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Head from 'next/head';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-export default function Layout({ children }) {
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+export default function Layout({ children }: LayoutProps) {
   return (
     <div>
       <Head>
@@ -28,6 +32,11 @@ export default function Layout({ children }) {
           rel="mask-icon"
           href="/favicons/safari-pinned-tab.svg"
           color="#5bbad5"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Ubuntu:wght@400;700&display=swap"
+          rel="stylesheet"
         />
         <meta name="msapplication-TileColor" content="#ffc40d" />
         <meta name="theme-color" content="#ffffff" />

@@ -1,5 +1,3 @@
-import { forwardRef, useRef } from 'react';
-
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -34,20 +32,24 @@ const menuItems = [
     label: 'Play',
   },
   {
-    link: '/seals',
-    label: 'Seals',
+    link: '/contact',
+    label: 'Contact',
   },
   {
-    link: '/about',
-    label: 'About',
+    About: [
+      {
+        link: '/seals',
+        label: 'Seals',
+      },
+      {
+        link: '/about',
+        label: 'WIHA',
+      },
+    ],
   },
   {
     link: '/blog',
-    label: 'Blog',
-  },
-  {
-    link: '/contact',
-    label: 'Contact',
+    label: 'News',
   },
   {
     Leagues: [
@@ -79,7 +81,7 @@ const NavBarContent = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   max-height: 75px;
 `;
 const NavLogo = styled.div`
@@ -132,23 +134,16 @@ export default function Header() {
 
 function MobileNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
 
   return (
     <MobileNavWrapper>
       <IconButton
         icon={<HamburgerIcon />}
-        ref={btnRef}
         fontSize="30px"
         onClick={onOpen}
         aria-label="Search database"
       />
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-        finalFocusRef={btnRef}
-      >
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
@@ -156,7 +151,7 @@ function MobileNav() {
 
           <DrawerBody>
             <Stack>
-              {menuItems.map((item, key) => {
+              {menuItems.map((item) => {
                 if (!item.link) {
                   return (
                     <MobileAccordionItem
@@ -175,7 +170,16 @@ function MobileNav() {
   );
 }
 
-function MobileNavItem({ item }) {
+type MobileNavItem = {
+  link: string;
+  label: string;
+};
+
+type MobileNavItemProps = {
+  item: MobileNavItem
+};
+
+function MobileNavItem({ item }: MobileNavItemProps) {
   const { link, label } = item;
   return (
     <>
@@ -193,8 +197,11 @@ function MobileNavItem({ item }) {
     </>
   );
 }
+type MobileAccordionItemProps = {
+  items: [MobileNavItem];
+};
 
-function MobileAccordionItem({ items }) {
+function MobileAccordionItem({ items }: MobileAccordionItemProps) {
   const category = Object.keys(items)[0];
 
   return (
@@ -222,10 +229,13 @@ function DesktopNav() {
       <NavItems>
         <Menu>
           <MenuButton size="lg" as={Button} variant="navButton">
-            Leagues
+            Play
             <ChevronDownIcon />
           </MenuButton>
           <MenuList>
+            <Link href={'/play'}>
+              <MenuItem>Start Playing</MenuItem>
+            </Link>
             <Link href={'/frozen'}>
               <MenuItem>Frozen Fours</MenuItem>
             </Link>
@@ -237,22 +247,31 @@ function DesktopNav() {
             </Link>
           </MenuList>
         </Menu>
-        <NavButton link={'/play'} text={'Play'} />
-        <NavButton link={'/about'} text={'About'} />
-        <NavButton link={'/seals'} text={'Seals'} />
-        <NavButton link={'/blog'} text={'Blog'} />
-        <NavButton link={'/contact'} text={'Contact'} />
+        <Menu>
+          <MenuButton size="lg" as={Button} variant="navButton">
+            About
+            <ChevronDownIcon />
+          </MenuButton>
+          <MenuList>
+            <Link href={'/about'}>
+              <MenuItem>WIHA</MenuItem>
+            </Link>
+            <Link href={'/seals'}>
+              <MenuItem>Seals</MenuItem>
+            </Link>
+          </MenuList>
+        </Menu>
+        <Link href="/blog">
+          <Button size="lg" variant="navButton">
+            News
+          </Button>
+        </Link>
+        <Link href="/contact">
+          <Button size="lg" variant="wiha" ml="2rem">
+            Contact
+          </Button>
+        </Link>
       </NavItems>
     </DesktopNavWrapper>
-  );
-}
-
-function NavButton({ link, text }) {
-  return (
-    <Link href={link}>
-      <Button size="lg" variant="navButton">
-        {text}
-      </Button>
-    </Link>
   );
 }

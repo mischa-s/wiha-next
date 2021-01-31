@@ -1,24 +1,47 @@
 import Link from 'next/link';
 
-import { Button, Table, Tbody, Tr, Td } from '@chakra-ui/react';
+import { Button, Table, Tbody, Tr, Td, Text } from '@chakra-ui/react';
 
-export default function PlayTable({ playTable }) {
+type PlayTableProps = {
+  playTable: [
+    {
+      link: string,
+      title: string,
+      description: string,
+      day: string,
+      time: string
+    }
+  ];
+};
+
+export default function PlayTable({ playTable }: PlayTableProps) {
   return (
     <Table colorScheme="blackAlpha" size="sm">
       <Tbody>
-        {playTable.map((row, index: number) => {
+        {playTable.map((row) => {
           return (
             <Tr key={row.title}>
               <Td>
-                <Button width="130px" mb="1" size="sm" variant="wiha">
+                <Button width="130px" mb="1" size="md" variant="secondary">
                   <Link href={row.link}>{row.title}</Link>
                 </Button>
               </Td>
-              <Td>{row.description}</Td>
               <Td>
-                {row.day}
-                <br />
-                {row.time}
+                <Text fontSize="lg" lineHeight="base">
+                  {row.description}
+                </Text>
+              </Td>
+              <Td>
+                <Text
+                  fontSize="lg"
+                  my="1rem"
+                  lineHeight="tall"
+                  fontWeight="bold"
+                >
+                  {row.day}
+                  <br />
+                  {row.time}
+                </Text>
               </Td>
             </Tr>
           );
