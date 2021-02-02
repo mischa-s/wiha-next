@@ -17,11 +17,10 @@ import { fetchEntry } from '../utils/contentfulPages';
 
 const Hero = styled.section`
   display: flex;
-  max-width: 700px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 2rem;
+  padding: 2rem 0;
   margin: auto;
 
 }`;
@@ -40,45 +39,50 @@ margin: auto;
 type PlayTableType = {
   playTable: [
     {
-      link: string,
-      title: string,
-      description: string,
-      day: string,
-      time: string
+      link: string;
+      title: string;
+      description: string;
+      day: string;
+      time: string;
     }
   ];
 };
 
 type PlayProps = {
-  playTable: PlayTableType
-}
+  playTable: PlayTableType;
+  fields: {
+    title: string;
+    description: string;
+  };
+};
 
-export default function Play({ playTable }: PlayProps) {
+export default function Play({ playTable, fields }: PlayProps) {
+  const { title, description } = fields;
+
   return (
     <Layout>
       <Head>
-        <title>WIHA - Play Hockey</title>
+        <title>{title}</title>
       </Head>
-      <Box bg="blackAlpha.200">
-        <Hero>
-          <Heading as="h1" size="lg" textAlign="center" my={2}>
-            Start playing hockey
-          </Heading>
-          <Text fontSize="lg" my="1rem">
-            Our aim is to provide a fun & safe environment for players of all
-            ages, abilities and genders to enjoy the great sport of Ice Hockey.
-          </Text>
-          <Text fontSize="lg" mb="2rem">
-            New player? Retuning player? Casual player? We have hockey for
-            everyone! Pick what sounds most like you and get in touch
-          </Text>
-        </Hero>
-      </Box>
+      <Flex direction="column" align="center" bg="blackAlpha.200" py="2rem">
+        <Heading as="h1" size="lg" textAlign="center" my={2}>
+          {title}
+        </Heading>
+        <Text fontSize="lg" my="1rem" w={[350, 550, 700, 800]} px="1rem">
+          {description}
+        </Text>
+      </Flex>
       <MainSection>
         <PlayTable playTable={playTable} />
         <Flex justify="center" wrap="wrap" mt="3rem">
-          <InternalLink href="/contact">
-            <Button mb="2rem" mr="5" size="lg" variant="wiha" colorScheme="wiha">
+          <InternalLink href="/equipment">
+            <Button
+              mb="2rem"
+              mr="5"
+              size="lg"
+              variant="wiha"
+              colorScheme="wiha"
+            >
               Equpiment
             </Button>
           </InternalLink>
@@ -86,8 +90,14 @@ export default function Play({ playTable }: PlayProps) {
             href="https://docs.google.com/forms/u/1/d/1Jni35B2Fw-tmMq6E4vUP-nNulPpkJk3AI1iU3fntJcM/"
             isExternal
           >
-            <Button mb="2rem" mr="5" size="lg" variant="wiha" colorScheme="wiha">
-              Become a member
+            <Button
+              mb="2rem"
+              mr="5"
+              size="lg"
+              variant="wiha"
+              colorScheme="wiha"
+            >
+              Register now
             </Button>
           </ExternalLink>
           <InternalLink href="/contact">
@@ -103,9 +113,11 @@ export default function Play({ playTable }: PlayProps) {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const playTable = await fetchEntry('2OomGmziRfIZwJmUyKwPA3');
+  const { fields } = await fetchEntry('1eMJSvZ2uK077JRQABMB6u');
 
   return {
     props: {
+      fields,
       playTable: playTable.fields.playTable,
     },
   };

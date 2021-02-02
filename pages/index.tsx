@@ -1,15 +1,19 @@
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import InternalLink from 'next/link';
-import { Link as ExternalLink, Button, Heading, Flex } from '@chakra-ui/react';
+import {
+  Link as ExternalLink,
+  Box,
+  Button,
+  Heading,
+  Flex,
+} from '@chakra-ui/react';
 
 import styled from '@emotion/styled';
 
 import { fetchEntry, fetchEntries } from '../utils/contentfulPages';
-
 import Layout from '../components/Layout';
-import BlogRoll from "../components/BlogRoll";
-// import Post from "../components/Post";
+import BlogRoll from '../components/BlogRoll';
 
 type HeroProps = {
   imageURL: string;
@@ -47,15 +51,6 @@ const Hero = styled.section<HeroProps>`
   }
 `;
 
-const IntroBlurb = styled.section`
-  display: flex;
-  flex-direction: column;
-  width: 50em;
-  align-items: left;
-  max-width: 100%;
-  margin: 2em auto 3em auto;
-`;
-
 interface Props {
   fields: {
     heroImage: {
@@ -65,21 +60,23 @@ interface Props {
         };
       };
     };
-  },
-  posts: [{
-    heroImage: {
-      fields: {
-        file: {
-          url: string;
+  };
+  posts: [
+    {
+      heroImage: {
+        fields: {
+          file: {
+            url: string;
+          };
         };
       };
-    },
-    title: string,
-    description: string,
-    publishDate: string,
-    slug: string,
-    body:string
-  }];
+      title: string;
+      description: string;
+      publishDate: string;
+      slug: string;
+      body: string;
+    }
+  ];
 }
 
 export default function Home({ fields, posts }: Props) {
@@ -94,10 +91,10 @@ export default function Home({ fields, posts }: Props) {
       </Head>
 
       <Hero imageURL={imageURL}>
-        <Flex justify="center" wrap="wrap" direction="column">
+        <Flex justify="center" direction="column">
           <InternalLink href="/play">
             <Button
-              w={[350, 400, 500]}
+              w={[350, 550, 700]}
               mx="2rem"
               my="2rem"
               size="xl"
@@ -114,7 +111,7 @@ export default function Home({ fields, posts }: Props) {
             my="2rem"
           >
             <Button
-              w={[350, 400, 500]}
+              w={[350, 550, 700]}
               size="xl"
               variant="cta"
               colorScheme="gray"
@@ -124,7 +121,7 @@ export default function Home({ fields, posts }: Props) {
           </ExternalLink>
           <InternalLink href="/play">
             <Button
-              w={[350, 400, 500]}
+              w={[350, 550, 700]}
               mx="2rem"
               my="2rem"
               size="xl"
@@ -136,19 +133,19 @@ export default function Home({ fields, posts }: Props) {
           </InternalLink>
         </Flex>
       </Hero>
-      <IntroBlurb>
-        <Heading as="h2" size="lg" textAlign="center" my={5}>
-          Latest news
-        </Heading>
-        <BlogRoll posts={posts} />
-        <Flex justify="center">
-          <InternalLink href="/blog">
-            <Button size="lg" variant="outline">
-              Read More
-            </Button>
-          </InternalLink>
-        </Flex>
-      </IntroBlurb>
+      <Flex direction="column" align="center">
+        <Box mt="3rem" px="1.5rem" w={[350, 550, 700, 800]}>
+          <Heading as="h2" size="lg" textAlign="center">
+            Latest news
+          </Heading>
+          <BlogRoll posts={posts} />
+        </Box>
+        <InternalLink href="/news" >
+          <Button my="1rem" size="lg" variant="outline">
+            Read More
+          </Button>
+        </InternalLink>
+      </Flex>
     </Layout>
   );
 }
@@ -157,7 +154,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const { fields } = await fetchEntry('4q3v8VuOVVY5gQ6P58aSgD');
   const blogPosts = await fetchEntries('blogPost');
   const posts = blogPosts.map((post) => post.fields);
-  
+
   return {
     props: {
       fields,
