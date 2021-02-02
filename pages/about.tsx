@@ -56,7 +56,6 @@ export default function Play({ boardMembers, fields }: Props) {
           {boardMembers &&
             boardMembers.map((person) => {
               const { name, title, image } = person;
-              console.log(image, 'image');
               let imageURL = image?.fields?.file?.url;
 
               return (
