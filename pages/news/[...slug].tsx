@@ -4,16 +4,17 @@ import ErrorPage from 'next/error';
 import { GetStaticProps } from 'next';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
+import BlogRoll from '../../components/BlogRoll';
 import Layout from '../../components/Layout';
 import Post from '../../components/Post';
+
+import { PostInterface } from '../../types';
 
 import {
   getPostBySlug,
   getMorePosts,
   getAllPostsWithSlug,
 } from '../../utils/contentfulPages';
-
-import BlogRoll from '../../components/BlogRoll';
 
 export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug();
@@ -30,13 +31,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       post: post ? post.fields : null,
-      morePosts: morePosts ? morePosts.map((post) => post.fields) : null,
+      morePosts: morePosts
+        ? morePosts.map((additionalPost) => additionalPost.fields)
+        : null,
     },
     revalidate: 1,
   };
 };
 
-export default function PostPage({ post, morePosts }) {
+export interface Props {
+  post: PostInterface;
+  morePosts: [PostInterface];
+}
+
+export default function PostPage({ post, morePosts }: Props) {
   const router = useRouter();
   if (!router.isFallback && !post) {
     return <ErrorPage statusCode={404} />;
@@ -45,7 +53,7 @@ export default function PostPage({ post, morePosts }) {
   return (
     <Layout>
       <Head>
-        <title>WIHA - {post.title}</title>
+        <title>{post.title}</title>
       </Head>
       <Flex direction="column" align="center" bg="blackAlpha.200" py="2rem">
         <Heading as="h1" size="lg" textAlign="center" my={2}>

@@ -1,13 +1,14 @@
 const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
 const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const client = require('contentful').createClient({
-  space: space,
-  accessToken: accessToken,
+  space,
+  accessToken,
   // requestLogger: (config) => console.log(config),
 });
 
-export async function fetchEntries(contentTypeId: string, order: string) {
+export async function fetchEntries(contentTypeId: string, order?: string) {
   try {
     const entries = await client.getEntries({
       content_type: contentTypeId,

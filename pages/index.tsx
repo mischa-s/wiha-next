@@ -14,6 +14,7 @@ import styled from '@emotion/styled';
 import { fetchEntry, fetchEntries } from '../utils/contentfulPages';
 import Layout from '../components/Layout';
 import BlogRoll from '../components/BlogRoll';
+import { PostInterface, ContentfulImageInterface } from '../types';
 
 type HeroProps = {
   imageURL: string;
@@ -53,36 +54,15 @@ const Hero = styled.section<HeroProps>`
 
 interface Props {
   fields: {
-    heroImage: {
-      fields: {
-        file: {
-          url: string;
-        };
-      };
-    };
+    heroImage: ContentfulImageInterface;
   };
-  posts: [
-    {
-      heroImage: {
-        fields: {
-          file: {
-            url: string;
-          };
-        };
-      };
-      title: string;
-      description: string;
-      publishDate: string;
-      slug: string;
-      body: string;
-    }
-  ];
+  posts: [PostInterface];
 }
 
 export default function Home({ fields, posts }: Props) {
   const { heroImage } = fields;
 
-  let imageURL = heroImage?.fields?.file?.url;
+  const imageURL = heroImage?.fields?.file?.url;
 
   return (
     <Layout>

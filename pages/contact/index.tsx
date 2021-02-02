@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import {
-  Box,
   Button,
   Heading,
   Flex,
@@ -38,7 +37,7 @@ function encode(data) {
 }
 
 export default function Index() {
-  const [isValidated, setIsValidated] = useState(true);
+  // const [isValidated, setIsValidated] = useState(true);
   const [fields, updateFields] = useState({});
   const router = useRouter();
 
@@ -58,7 +57,7 @@ export default function Index() {
       }),
     })
       .then(() => router.push(form.getAttribute('action')))
-      .catch((error) => alert(error));
+      .catch((error) => console.error(error));
   }
 
   return (
@@ -69,8 +68,9 @@ export default function Index() {
         </Heading>
         <Text fontSize="lg" my="1rem" w={[350, 550, 700, 800]} px="1rem">
           We are always keen to help people start playing or return to the great
-          game of ice hockey! We're happy to answer any and all questions about
-          ice hockey in Wellington, get in touch and let's get you on the ice!
+          game of ice hockey! We&apos;re happy to answer any and all questions
+          about ice hockey in Wellington, get in touch and let&apos;s get you on
+          the ice!
         </Text>
       </Flex>
       <ContentWrapper>
@@ -85,7 +85,7 @@ export default function Index() {
           {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
           <input type="hidden" name="form-name" value="contact" />
           <div hidden>
-            <label>
+            <label htmlFor="bot-field">
               Don’t fill this out:
               <input name="bot-field" onChange={handleChange} />
             </label>

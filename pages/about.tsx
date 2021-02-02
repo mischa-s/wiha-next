@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
-import Layout from '../components/Layout';
 import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
+import Layout from '../components/Layout';
 import { fetchEntry, fetchEntries } from '../utils/contentfulPages';
 
 interface Props {
@@ -55,8 +55,8 @@ export default function Play({ boardMembers, fields }: Props) {
         >
           {boardMembers &&
             boardMembers.map((person) => {
-              const { name, title, image } = person;
-              let imageURL = image?.fields?.file?.url;
+              const { name, title: imageTitle, image } = person;
+              const imageURL = image?.fields?.file?.url;
 
               return (
                 <Box key={name} w={[150, 200, 250]} my="3rem">
@@ -68,7 +68,7 @@ export default function Play({ boardMembers, fields }: Props) {
                     alt={`image thumbnail for post ${name}`}
                   />
                   <Text>{name}</Text>
-                  <Text>{title}</Text>
+                  <Text>{imageTitle}</Text>
                 </Box>
               );
             })}

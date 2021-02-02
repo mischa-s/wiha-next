@@ -1,11 +1,30 @@
 import Head from 'next/head';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
 import Layout from '../components/Layout';
-import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import { fetchEntry } from '../utils/contentfulPages';
 
-export default function SealsPage({ fields }) {
+interface Props {
+  fields: {
+    title: string;
+    description: string;
+    subtitle1: string;
+    contentBlock1: string;
+    images: [
+      {
+        fields: {
+          title: string;
+          file: {
+            url: string;
+          };
+        };
+      }
+    ];
+  };
+}
+
+export default function SealsPage({ fields }: Props) {
   const { title, description, subtitle1, contentBlock1, images } = fields;
 
   const sealsImages = images.map((image) => image.fields);

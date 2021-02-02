@@ -6,6 +6,7 @@ import {
   Box,
   Button,
   Stack,
+  Link as ChakraLink,
   Menu,
   MenuButton,
   MenuList,
@@ -266,14 +267,14 @@ export default function Header() {
         <NavBarContent>
           <NavLogo>
             <Link passHref href="/">
-              <a>
+              <ChakraLink>
                 <Image
                   src="/wiha-logos/logo.png"
                   width="125"
                   height="125"
                   alt="WIHA"
                 />
-              </a>
+              </ChakraLink>
             </Link>
           </NavLogo>
           <DesktopNav />

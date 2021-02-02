@@ -100,7 +100,7 @@ export default function Play({ playTable, fields }: PlayProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const playTable = await fetchEntry('2OomGmziRfIZwJmUyKwPA3');
   const { fields } = await fetchEntry('1eMJSvZ2uK077JRQABMB6u');
 

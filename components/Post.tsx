@@ -1,30 +1,17 @@
 import { Text, Image } from '@chakra-ui/react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
+import { PostInterface } from '../types';
+
 type PostProps = {
-  truncate: boolean;
-  post: {
-    heroImage: {
-      fields: {
-        file: {
-          url: string;
-        };
-      };
-    };
-    title: string;
-    description: string;
-    publishDate: string;
-    slug: string;
-    body: Document;
-  };
+  // eslint-disable-next-line react/require-default-props
+  truncate?: boolean;
+  post: PostInterface;
 };
 
-export default function Post(props: PostProps) {
-  const { heroImage, body, title } = props.post;
-
-  const { truncate = true } = props;
-
-  let imageURL = heroImage?.fields?.file?.url;
+export default function Post({ post, truncate = false }: PostProps) {
+  const { heroImage, body, title } = post;
+  const imageURL = heroImage?.fields?.file?.url;
 
   return (
     <>

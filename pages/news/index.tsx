@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
-
-import Layout from '../../components/Layout';
 import {
   Box,
   Link as ExternalLink,
@@ -9,26 +7,14 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/react';
+
+import Layout from '../../components/Layout';
 import { getAllPosts } from '../../utils/contentfulPages';
 import BlogRoll from '../../components/BlogRoll';
+import { PostInterface } from '../../types';
 
 interface Props {
-  posts: [
-    {
-      heroImage: {
-        fields: {
-          file: {
-            url: string;
-          };
-        };
-      };
-      title: string;
-      description: string;
-      publishDate: string;
-      slug: string;
-      body: string;
-    }
-  ];
+  posts: [PostInterface];
 }
 
 export default function Play({ posts }: Props) {

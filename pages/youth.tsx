@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
 import Layout from '../components/Layout';
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { fetchEntry } from '../utils/contentfulPages';
+import { GenericContentfulPageInterface } from '../types';
 
-export default function Play({ fields }) {
+export default function Play({ fields }: GenericContentfulPageInterface) {
   const { title, description, subtitle1, contentBlock1 } = fields;
 
   return (

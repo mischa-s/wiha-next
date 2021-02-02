@@ -2,24 +2,10 @@ import { Button, Heading, Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
 import Post from '../components/Post';
+import { PostInterface } from '../types';
 
 interface BlogRollProps {
-  posts: [
-    {
-      heroImage: {
-        fields: {
-          file: {
-            url: string;
-          };
-        };
-      };
-      title: string;
-      description: string;
-      publishDate: string;
-      slug: string;
-      body: Document;
-    }
-  ];
+  posts: [PostInterface];
 }
 
 export default function BlogRoll({ posts }: BlogRollProps) {
