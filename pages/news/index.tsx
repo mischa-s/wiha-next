@@ -9,7 +9,7 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/react';
-import { fetchEntries } from '../../utils/contentfulPages';
+import { getAllPosts } from '../../utils/contentfulPages';
 import BlogRoll from '../../components/BlogRoll';
 
 interface Props {
@@ -73,7 +73,7 @@ export default function Play({ posts }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const blogPosts = await fetchEntries('blogPost');
+  const blogPosts = await getAllPosts();
   const posts = blogPosts.map((post) => post.fields);
 
   return {

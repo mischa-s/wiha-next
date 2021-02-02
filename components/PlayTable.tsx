@@ -5,11 +5,11 @@ import { Button, Table, Tbody, Tr, Td, Text } from '@chakra-ui/react';
 type PlayTableProps = {
   playTable: [
     {
-      link: string,
-      title: string,
-      description: string,
-      day: string,
-      time: string
+      link: string;
+      title: string;
+      description: string;
+      day: string;
+      time: string;
     }
   ];
 };
@@ -22,9 +22,11 @@ export default function PlayTable({ playTable }: PlayTableProps) {
           return (
             <Tr key={row.title}>
               <Td>
-                <Button width="130px" mb="1" size="md" variant="secondary">
-                  <Link href={row.link}>{row.title}</Link>
-                </Button>
+                <Link href={row.link}>
+                  <Button width="130px" mb="1" size="md" variant="secondary">
+                    {row.title}
+                  </Button>
+                </Link>
               </Td>
               <Td>
                 <Text fontSize="lg" lineHeight="base">

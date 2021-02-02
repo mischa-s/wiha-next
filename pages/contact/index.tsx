@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import {
+  Box,
   Button,
   Heading,
   Flex,
   Input,
   Stack,
+  Text,
   Textarea,
   FormControl,
   FormLabel,
@@ -61,17 +63,17 @@ export default function Index() {
 
   return (
     <Layout>
-      <ContentWrapper>
-        <Heading
-          as="h1"
-          mb="5"
-          size="xl"
-          bg="blackAlpha.800"
-          color="brightYellow"
-          p={2}
-        >
+      <Flex direction="column" align="center" bg="blackAlpha.200" py="2rem">
+        <Heading as="h1" size="lg" textAlign="center" my={2}>
           Contact
         </Heading>
+        <Text fontSize="lg" my="1rem" w={[350, 550, 700, 800]} px="1rem">
+          We are always keen to help people start playing or return to the great
+          game of ice hockey! We're happy to answer any and all questions about
+          ice hockey in Wellington, get in touch and let's get you on the ice!
+        </Text>
+      </Flex>
+      <ContentWrapper>
         <form
           name="contact"
           method="post"
@@ -85,7 +87,6 @@ export default function Index() {
           <div hidden>
             <label>
               Don’t fill this out:
-              {' '}
               <input name="bot-field" onChange={handleChange} />
             </label>
           </div>

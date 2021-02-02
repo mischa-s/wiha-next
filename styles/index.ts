@@ -131,6 +131,13 @@ const overrides = {
       p: {
         whiteSpace: 'pre-wrap',
       },
+
+      a: {
+        color: "wiha.700"
+      },
+      ul: {
+        marginLeft: '1rem'
+      }
     },
   },
   colors,

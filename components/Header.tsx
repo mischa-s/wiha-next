@@ -28,42 +28,46 @@ import styled from '@emotion/styled';
 
 const menuItems = [
   {
-    link: '/play',
-    label: 'Play',
-  },
-  {
     link: '/contact',
     label: 'Contact',
   },
   {
+    link: '/news',
+    label: 'News',
+  },
+  {
+    Play: [
+      {
+        link: '/play',
+        label: 'Start Playing',
+      },
+      {
+        link: '/frozen',
+        label: 'Frozen Fours',
+      },
+      {
+        link: '/bear',
+        label: 'Bear League',
+      },
+      {
+        link: '/youth',
+        label: 'Youth',
+      },
+    ],
+  },
+  {
     About: [
+      {
+        link: '/about',
+        label: 'WIHA',
+      },
       {
         link: '/seals',
         label: 'Seals',
       },
       {
-        link: '/about',
-        label: 'WIHA',
-      },
-    ],
-  },
-  {
-    link: '/blog',
-    label: 'News',
-  },
-  {
-    Leagues: [
-      {
-        link: '/play/frozen',
-        label: 'Frozen Fours',
-      },
-      {
-        link: '/play/bear',
-        label: 'Bear League',
-      },
-      {
-        link: '/play/youth',
-        label: 'Youth',
+        link: '/equipment',
+        label: 'Equpiment',
       },
     ],
   },
@@ -142,6 +146,7 @@ function MobileNav() {
         fontSize="30px"
         onClick={onOpen}
         aria-label="Search database"
+        borderRadius="0"
       />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
@@ -151,17 +156,19 @@ function MobileNav() {
 
           <DrawerBody>
             <Stack>
-              {menuItems.map((item) => {
-                if (!item.link) {
-                  return (
-                    <MobileAccordionItem
-                      key={Object.keys(item)[0]}
-                      items={item}
-                    />
-                  );
-                }
-                return <MobileNavItem key={item.label} item={item} />;
-              })}
+              <Accordion allowMultiple>
+                {menuItems.map((item) => {
+                  if (!item.link) {
+                    return (
+                      <MobileAccordionItem
+                        key={Object.keys(item)[0]}
+                        items={item}
+                      />
+                    );
+                  }
+                  return <MobileNavItem key={item.label} item={item} />;
+                })}
+              </Accordion>
             </Stack>
           </DrawerBody>
         </DrawerContent>
@@ -176,7 +183,7 @@ type MobileNavItem = {
 };
 
 type MobileNavItemProps = {
-  item: MobileNavItem
+  item: MobileNavItem;
 };
 
 function MobileNavItem({ item }: MobileNavItemProps) {
@@ -205,21 +212,19 @@ function MobileAccordionItem({ items }: MobileAccordionItemProps) {
   const category = Object.keys(items)[0];
 
   return (
-    <Accordion allowMultiple>
-      <AccordionItem>
-        <AccordionButton>
-          <Box my="5" flex="1" textAlign="left">
-            {category}
-          </Box>
-          <AccordionIcon />
-        </AccordionButton>
-        <AccordionPanel pb={4}>
-          {items[category].map((item) => {
-            return <MobileNavItem key={item.label} item={item} />;
-          })}
-        </AccordionPanel>
-      </AccordionItem>
-    </Accordion>
+    <AccordionItem>
+      <AccordionButton>
+        <Box my="5" flex="1" textAlign="left">
+          {category}
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+      <AccordionPanel pb={4}>
+        {items[category].map((item) => {
+          return <MobileNavItem key={item.label} item={item} />;
+        })}
+      </AccordionPanel>
+    </AccordionItem>
   );
 }
 
@@ -259,9 +264,12 @@ function DesktopNav() {
             <Link href={'/seals'}>
               <MenuItem>Seals</MenuItem>
             </Link>
+            <Link href={'/equipment'}>
+              <MenuItem>Equipment</MenuItem>
+            </Link>
           </MenuList>
         </Menu>
-        <Link href="/blog">
+        <Link href="/news">
           <Button size="lg" variant="navButton">
             News
           </Button>
