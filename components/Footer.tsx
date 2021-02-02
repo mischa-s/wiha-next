@@ -71,9 +71,9 @@ export default function Footer() {
               About
             </Button>
           </Link>
-          <Link href="/blog">
+          <Link href="/news">
             <Button colorScheme="wiha" variant="link">
-              Blog
+              News
             </Button>
           </Link>
           <Link href="/contact">
