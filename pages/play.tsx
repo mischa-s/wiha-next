@@ -13,6 +13,7 @@ import styled from '@emotion/styled';
 import PlayTable from '../components/PlayTable';
 import Layout from '../components/Layout';
 import { fetchEntry } from '../utils/contentfulPages';
+import { PlayTableRowInterface } from '../types';
 
 const MainSection = styled.section`
 display: flex;
@@ -25,20 +26,8 @@ margin: auto;
 
 }`;
 
-type PlayTableType = {
-  playTable: [
-    {
-      link: string;
-      title: string;
-      description: string;
-      day: string;
-      time: string;
-    }
-  ];
-};
-
 type PlayProps = {
-  playTable: PlayTableType;
+  playTable: PlayTableRowInterface[];
   fields: {
     title: string;
     description: string;

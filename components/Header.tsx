@@ -27,7 +27,19 @@ import {
 import { ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
 import styled from '@emotion/styled';
 
-const menuItems = [
+interface MobileNavItemInterface {
+  link: string;
+  label: string;
+}
+
+interface MobileAccordionItemsInterface {
+  play?: MobileNavItemInterface[];
+  about?: MobileNavItemInterface[];
+}
+
+type MenuItemType = MobileNavItemInterface | MobileAccordionItemsInterface;
+
+const menuItems: MenuItemType[] = [
   {
     link: '/contact',
     label: 'Contact',
@@ -37,7 +49,7 @@ const menuItems = [
     label: 'News',
   },
   {
-    Play: [
+    play: [
       {
         link: '/play',
         label: 'Start Playing',
@@ -57,7 +69,7 @@ const menuItems = [
     ],
   },
   {
-    About: [
+    about: [
       {
         link: '/about',
         label: 'WIHA',
@@ -112,14 +124,13 @@ const DesktopNavWrapper = styled.div`
   }
 `;
 
-type MobileNavItem = {
-  link: string;
-  label: string;
-};
+interface MobileNavItemProps {
+  item: MobileNavItemInterface;
+}
 
-type MobileNavItemProps = {
-  item: MobileNavItem;
-};
+interface MobileAccordionItemsInterfaceProps {
+  items: MobileAccordionItemsInterface;
+}
 
 function MobileNavItem({ item }: MobileNavItemProps) {
   const { link, label } = item;
@@ -139,13 +150,10 @@ function MobileNavItem({ item }: MobileNavItemProps) {
     </>
   );
 }
-type MobileAccordionItemProps = {
-  items: [MobileNavItem];
-};
 
-function MobileAccordionItem({ items }: MobileAccordionItemProps) {
+function MobileAccordionItem({ items }: MobileAccordionItemsInterfaceProps) {
   const category = Object.keys(items)[0];
-
+  const accordionItem = items[category]
   return (
     <AccordionItem>
       <AccordionButton>
@@ -155,7 +163,7 @@ function MobileAccordionItem({ items }: MobileAccordionItemProps) {
         <AccordionIcon />
       </AccordionButton>
       <AccordionPanel pb={4}>
-        {items[category].map((item) => {
+        {accordionItem.map((item: MobileNavItemInterface) => {
           return <MobileNavItem key={item.label} item={item} />;
         })}
       </AccordionPanel>
@@ -184,16 +192,16 @@ function MobileNav() {
           <DrawerBody>
             <Stack>
               <Accordion allowMultiple>
-                {menuItems.map((item) => {
-                  if (!item.link) {
-                    return (
-                      <MobileAccordionItem
-                        key={Object.keys(item)[0]}
-                        items={item}
-                      />
-                    );
+                {menuItems.map((item: MenuItemType) => {
+                  if ('link' in item) {
+                    return <MobileNavItem key={item.label} item={item} />;
                   }
-                  return <MobileNavItem key={item.label} item={item} />;
+                  return (
+                    <MobileAccordionItem
+                      key={Object.keys(item)[0]}
+                      items={item}
+                    />
+                  );
                 })}
               </Accordion>
             </Stack>

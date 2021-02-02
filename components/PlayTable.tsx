@@ -1,18 +1,11 @@
 import Link from 'next/link';
 
 import { Button, Table, Tbody, Tr, Td, Text } from '@chakra-ui/react';
+import { PlayTableRowInterface } from '../types';
 
-type PlayTableProps = {
-  playTable: [
-    {
-      link: string;
-      title: string;
-      description: string;
-      day: string;
-      time: string;
-    }
-  ];
-};
+interface PlayTableProps {
+  playTable: PlayTableRowInterface[];
+}
 
 export default function PlayTable({ playTable }: PlayTableProps) {
   return (

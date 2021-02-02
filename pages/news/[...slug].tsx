@@ -50,6 +50,9 @@ export default function PostPage({ post, morePosts }: Props) {
     return <ErrorPage statusCode={404} />;
   }
 
+  if (!post) {
+    return null;
+  }
   return (
     <Layout>
       <Head>

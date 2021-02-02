@@ -4,27 +4,9 @@ import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
 import Layout from '../components/Layout';
 import { fetchEntry } from '../utils/contentfulPages';
+import { GenericContentfulPageInterface } from '../types';
 
-interface Props {
-  fields: {
-    title: string;
-    description: string;
-    subtitle1: string;
-    contentBlock1: string;
-    images: [
-      {
-        fields: {
-          title: string;
-          file: {
-            url: string;
-          };
-        };
-      }
-    ];
-  };
-}
-
-export default function SealsPage({ fields }: Props) {
+export default function SealsPage({ fields }: GenericContentfulPageInterface) {
   const { title, description, subtitle1, contentBlock1, images } = fields;
 
   const sealsImages = images.map((image) => image.fields);

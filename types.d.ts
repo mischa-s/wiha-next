@@ -30,7 +30,7 @@ export interface GenericContentfulPageInterface {
     description: string;
     subtitle1: Document;
     contentBlock1: Document;
-    subtitle2: string;
+    subtitle2: Document;
     contentBlock2: Document;
     images: [
       {
@@ -43,4 +43,12 @@ export interface GenericContentfulPageInterface {
       }
     ];
   };
+}
+
+export interface PlayTableRowInterface {
+  link: string;
+  title: string;
+  description: string;
+  day: string;
+  time: string;
 }
