@@ -140,7 +140,7 @@ export default function Home({ fields, posts }: Props) {
           </Heading>
           <BlogRoll posts={posts} />
         </Box>
-        <InternalLink href="/news" >
+        <InternalLink href="/news">
           <Button my="1rem" size="lg" variant="outline">
             Read More
           </Button>

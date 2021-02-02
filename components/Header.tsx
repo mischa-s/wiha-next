@@ -111,72 +111,6 @@ const DesktopNavWrapper = styled.div`
   }
 `;
 
-export default function Header() {
-  return (
-    <nav role="navigation" aria-label="main-navigation">
-      <NavbarWrapper>
-        <NavBarContent>
-          <NavLogo>
-            <Link passHref href="/">
-              <a>
-                <Image
-                  src="/wiha-logos/logo.png"
-                  width="125"
-                  height="125"
-                  alt="WIHA"
-                />
-              </a>
-            </Link>
-          </NavLogo>
-          <DesktopNav />
-          <MobileNav />
-        </NavBarContent>
-      </NavbarWrapper>
-    </nav>
-  );
-}
-
-function MobileNav() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  return (
-    <MobileNavWrapper>
-      <IconButton
-        icon={<HamburgerIcon />}
-        fontSize="30px"
-        onClick={onOpen}
-        aria-label="Search database"
-        borderRadius="0"
-      />
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader />
-
-          <DrawerBody>
-            <Stack>
-              <Accordion allowMultiple>
-                {menuItems.map((item) => {
-                  if (!item.link) {
-                    return (
-                      <MobileAccordionItem
-                        key={Object.keys(item)[0]}
-                        items={item}
-                      />
-                    );
-                  }
-                  return <MobileNavItem key={item.label} item={item} />;
-                })}
-              </Accordion>
-            </Stack>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
-    </MobileNavWrapper>
-  );
-}
-
 type MobileNavItem = {
   link: string;
   label: string;
@@ -228,6 +162,47 @@ function MobileAccordionItem({ items }: MobileAccordionItemProps) {
   );
 }
 
+function MobileNav() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <MobileNavWrapper>
+      <IconButton
+        icon={<HamburgerIcon />}
+        fontSize="30px"
+        onClick={onOpen}
+        aria-label="Search database"
+        borderRadius="0"
+      />
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader />
+
+          <DrawerBody>
+            <Stack>
+              <Accordion allowMultiple>
+                {menuItems.map((item) => {
+                  if (!item.link) {
+                    return (
+                      <MobileAccordionItem
+                        key={Object.keys(item)[0]}
+                        items={item}
+                      />
+                    );
+                  }
+                  return <MobileNavItem key={item.label} item={item} />;
+                })}
+              </Accordion>
+            </Stack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </MobileNavWrapper>
+  );
+}
+
 function DesktopNav() {
   return (
     <DesktopNavWrapper>
@@ -238,16 +213,16 @@ function DesktopNav() {
             <ChevronDownIcon />
           </MenuButton>
           <MenuList>
-            <Link href={'/play'}>
+            <Link href="/play">
               <MenuItem>Start Playing</MenuItem>
             </Link>
-            <Link href={'/frozen'}>
+            <Link href="/frozen">
               <MenuItem>Frozen Fours</MenuItem>
             </Link>
-            <Link href={'/bear'}>
+            <Link href="/bear">
               <MenuItem>Bear League</MenuItem>
             </Link>
-            <Link href={'/youth'}>
+            <Link href="/youth">
               <MenuItem>Youth</MenuItem>
             </Link>
           </MenuList>
@@ -258,13 +233,13 @@ function DesktopNav() {
             <ChevronDownIcon />
           </MenuButton>
           <MenuList>
-            <Link href={'/about'}>
+            <Link href="/about">
               <MenuItem>WIHA</MenuItem>
             </Link>
-            <Link href={'/seals'}>
+            <Link href="/seals">
               <MenuItem>Seals</MenuItem>
             </Link>
-            <Link href={'/equipment'}>
+            <Link href="/equipment">
               <MenuItem>Equipment</MenuItem>
             </Link>
           </MenuList>
@@ -281,5 +256,30 @@ function DesktopNav() {
         </Link>
       </NavItems>
     </DesktopNavWrapper>
+  );
+}
+
+export default function Header() {
+  return (
+    <nav role="navigation" aria-label="main-navigation">
+      <NavbarWrapper>
+        <NavBarContent>
+          <NavLogo>
+            <Link passHref href="/">
+              <a>
+                <Image
+                  src="/wiha-logos/logo.png"
+                  width="125"
+                  height="125"
+                  alt="WIHA"
+                />
+              </a>
+            </Link>
+          </NavLogo>
+          <DesktopNav />
+          <MobileNav />
+        </NavBarContent>
+      </NavbarWrapper>
+    </nav>
   );
 }

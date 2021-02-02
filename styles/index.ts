@@ -133,11 +133,11 @@ const overrides = {
       },
 
       a: {
-        color: "wiha.700"
+        color: 'wiha.700',
       },
       ul: {
-        marginLeft: '1rem'
-      }
+        marginLeft: '1rem',
+      },
     },
   },
   colors,

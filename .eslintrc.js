@@ -1,28 +1,33 @@
-export const env = {
-  browser: true,
-  es2021: true,
-};
-export const extends = [
-  'plugin:react/recommended',
-  'airbnb',
-  'plugin:jsx-a11y/recommended',
-  'plugin:@typescript-eslint/recommended',
-  'plugin:prettier/recommended',
-  'plugin:prettier/react',
-  'plugin:prettier/@typescript-eslint',
-];
-export const parser = '@typescript-eslint/parser';
-export const parserOptions = {
-  ecmaFeatures: {
-    jsx: true,
+module.exports = {
+  env: {
+    browser: true,
   },
-  ecmaVersion: 12,
-  sourceType: 'module',
-};
-export const plugins = ['react', '@typescript-eslint', 'prettier'];
-export const rules = {
-  'react/react-in-jsx-scope': 'off',
-};
-export const globals = {
-  React: 'writable',
+  extends: [
+    'airbnb',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
+    // 'plugin:prettier/@typescript-eslint',
+    'plugin:jsx-a11y/recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
+  // parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: ['react', '@typescript-eslint', 'prettier'],
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+    'import/extensions': [0],
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'import/no-unresolved': 'off',
+    'react/jsx-filename-extension': 'off',
+  },
+  globals: {
+    React: 'writable',
+  },
 };

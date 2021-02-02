@@ -8,7 +8,7 @@ import { fetchEntry } from '../utils/contentfulPages';
 export default function SealsPage({ fields }) {
   const { title, description, subtitle1, contentBlock1, images } = fields;
 
-  const sealsImages = images.map((image) => image.fields)
+  const sealsImages = images.map((image) => image.fields);
 
   return (
     <Layout>
@@ -31,22 +31,21 @@ export default function SealsPage({ fields }) {
           {documentToReactComponents(contentBlock1)}
         </Box>
         {sealsImages.map((image) => {
-              const { title, file } = image;
-              let imageURL = file?.url;
+          const { title: imageTitle, file } = image;
+          const imageURL = file?.url;
 
-              return (
-                <Box key={title} w={[350, 550, 700, 800]} my="1rem">
-                  <Image
-                    mb="2rem"
-                    w={[350, 550, 700, 800]}
-                    objectFit="cover"
-                    src={imageURL ?? '/wiha-logos/logo.png'}
-                    alt={title}
-                  />
-                </Box>
-              );
-            })}
-
+          return (
+            <Box key={imageTitle} w={[350, 550, 700, 800]} my="1rem">
+              <Image
+                mb="2rem"
+                w={[350, 550, 700, 800]}
+                objectFit="cover"
+                src={imageURL ?? '/wiha-logos/logo.png'}
+                alt={title}
+              />
+            </Box>
+          );
+        })}
       </Flex>
     </Layout>
   );

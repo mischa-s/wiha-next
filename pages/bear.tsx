@@ -2,21 +2,11 @@ import Head from 'next/head';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import Layout from '../components/Layout';
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { fetchEntry } from '../utils/contentfulPages';
 
 export default function Play({ fields }) {
-  const {
-    title,
-    description,
-    subtitle1,
-    contentBlock1,
-  } = fields;
+  const { title, description, subtitle1, contentBlock1 } = fields;
 
   return (
     <Layout>
@@ -32,7 +22,7 @@ export default function Play({ fields }) {
         </Text>
       </Flex>
       <Flex direction="column" align="center" py="2rem">
-        <Heading as="h2" size="md" textAlign="center" m='2rem 1rem 0'>
+        <Heading as="h2" size="md" textAlign="center" m="2rem 1rem 0">
           {subtitle1}
         </Heading>
         <Box my="1rem" w={[350, 550, 700, 800]} px="1rem">

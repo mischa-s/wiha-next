@@ -67,7 +67,7 @@ export default function Play({ posts }: Props) {
         <Box mb="2rem" px="1.5rem" w={[350, 550, 700, 800]}>
           <BlogRoll posts={posts} />
         </Box>
-      </Flex>{' '}
+      </Flex>
     </Layout>
   );
 }

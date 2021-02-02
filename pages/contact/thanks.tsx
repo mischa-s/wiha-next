@@ -15,13 +15,13 @@ export default function Thanks() {
           about hockey and will try get to back to you within the next few days
         </Text>
       </Flex>
-        <Flex align="center" justify="center" minH="45vh">
-          <Link href="/">
-            <Button size="lg" variant="wiha">
-              Return to home page
-            </Button>
-          </Link>
-        </Flex>
+      <Flex align="center" justify="center" minH="45vh">
+        <Link href="/">
+          <Button size="lg" variant="wiha">
+            Return to home page
+          </Button>
+        </Link>
+      </Flex>
     </Layout>
   );
 }

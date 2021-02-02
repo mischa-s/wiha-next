@@ -7,23 +7,12 @@ import {
   Flex,
   Heading,
   Text,
-  Box,
 } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
 import PlayTable from '../components/PlayTable';
 import Layout from '../components/Layout';
 import { fetchEntry } from '../utils/contentfulPages';
-
-const Hero = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 2rem 0;
-  margin: auto;
-
-}`;
 
 const MainSection = styled.section`
 display: flex;

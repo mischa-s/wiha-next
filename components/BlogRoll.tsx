@@ -1,4 +1,4 @@
-import { Button, Heading, Flex, Box, Text } from '@chakra-ui/react';
+import { Button, Heading, Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
 import Post from '../components/Post';
@@ -34,7 +34,9 @@ export default function BlogRoll({ posts }: BlogRollProps) {
               <Heading as="h3" mt="2rem" mb="1rem" size="md">
                 <Link href={`/news/${slug}`}>
                   <Text cursor="pointer">
-                    {title} &bull; {format(parseISO(publishDate), 'dd.MM.yyyy')}
+                    {title}
+                    &nbsp;&bull;&nbsp;
+                    {format(parseISO(publishDate), 'dd.MM.yyyy')}
                   </Text>
                 </Link>
               </Heading>
