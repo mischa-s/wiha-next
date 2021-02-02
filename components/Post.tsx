@@ -9,7 +9,7 @@ type PostProps = {
   post: PostInterface;
 };
 
-export default function Post({ post, truncate = false }: PostProps) {
+export default function Post({ post, truncate = true }: PostProps) {
   const { heroImage, body, title } = post;
   const imageURL = heroImage?.fields?.file?.url;
 
