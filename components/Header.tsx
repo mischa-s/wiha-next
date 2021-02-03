@@ -49,7 +49,7 @@ const menuItems: MenuItemType[] = [
     label: 'News',
   },
   {
-    play: [
+    Play: [
       {
         link: '/play',
         label: 'Start Playing',
@@ -69,7 +69,7 @@ const menuItems: MenuItemType[] = [
     ],
   },
   {
-    about: [
+    About: [
       {
         link: '/about',
         label: 'WIHA',
