@@ -74,10 +74,11 @@ export default function Home({ fields, posts }: Props) {
         <Flex justify="center" direction="column">
           <InternalLink href="/play">
             <Button
-              w={[350, 450, 650]}
+              w={[325, 450, 650]}
               mx={[0, 0, '2rem']}
-              my="2rem"
-              size="xl"
+              my={['1rem', '2rem']}
+              h={[75, 100]}
+              fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
               colorScheme="gray"
             >
@@ -88,11 +89,12 @@ export default function Home({ fields, posts }: Props) {
             href="https://wellington-seals.printmighty.co.nz/"
             isExternal
             mx={[0, 0, '2rem']}
-            my="2rem"
+            my={['1rem', '2rem']}
           >
             <Button
-              w={[350, 450, 650]}
-              size="xl"
+              w={[325, 450, 650]}
+              h={[75, 100]}
+              fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
               colorScheme="gray"
             >
@@ -101,10 +103,11 @@ export default function Home({ fields, posts }: Props) {
           </ExternalLink>
           <InternalLink href="/play">
             <Button
-              w={[350, 450, 650]}
+              w={[325, 450, 650]}
               mx={[0, 0, '2rem']}
-              my="2rem"
-              size="xl"
+              my={['1rem', '2rem']}
+              h={[75, 100]}
+              fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
               colorScheme="gray"
             >
