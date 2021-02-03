@@ -16,7 +16,7 @@ export default function PlayTable({ playTable }: PlayTableProps) {
             <Tr key={row.title}>
               <Td>
                 <Link href={row.link}>
-                  <Button width="130px" mb="1" size="md" variant="secondary">
+                  <Button w="130px" mb="1" size="md" variant="secondary">
                     {row.title}
                   </Button>
                 </Link>
