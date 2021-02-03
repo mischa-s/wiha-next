@@ -11,7 +11,7 @@ import {
 
 import styled from '@emotion/styled';
 
-import { fetchEntry, fetchEntries } from '../utils/contentfulPages';
+import { fetchEntry, getAllPosts } from '../utils/contentfulPages';
 import Layout from '../components/Layout';
 import BlogRoll from '../components/BlogRoll';
 import { PostInterface, ContentfulImageInterface } from '../types';
@@ -74,7 +74,7 @@ export default function Home({ fields, posts }: Props) {
         <Flex justify="center" direction="column">
           <InternalLink href="/play">
             <Button
-              w={[350, 550, 700]}
+              w={[350, 450, 650]}
               mx="2rem"
               my="2rem"
               size="xl"
@@ -91,7 +91,7 @@ export default function Home({ fields, posts }: Props) {
             my="2rem"
           >
             <Button
-              w={[350, 550, 700]}
+              w={[350, 450, 650]}
               size="xl"
               variant="cta"
               colorScheme="gray"
@@ -101,7 +101,7 @@ export default function Home({ fields, posts }: Props) {
           </ExternalLink>
           <InternalLink href="/play">
             <Button
-              w={[350, 550, 700]}
+              w={[350, 450, 650]}
               mx="2rem"
               my="2rem"
               size="xl"
@@ -132,7 +132,7 @@ export default function Home({ fields, posts }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const { fields } = await fetchEntry('4q3v8VuOVVY5gQ6P58aSgD');
-  const blogPosts = await fetchEntries('blogPost');
+  const blogPosts = await getAllPosts();
   const posts = blogPosts.map((post) => post.fields);
 
   return {
