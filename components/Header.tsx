@@ -49,7 +49,7 @@ const menuItems: MenuItemType[] = [
     label: 'News',
   },
   {
-    Play: [
+    play: [
       {
         link: '/play',
         label: 'Start Playing',
@@ -69,7 +69,7 @@ const menuItems: MenuItemType[] = [
     ],
   },
   {
-    About: [
+    about: [
       {
         link: '/about',
         label: 'WIHA',
@@ -153,12 +153,12 @@ function MobileNavItem({ item }: MobileNavItemProps) {
 
 function MobileAccordionItem({ items }: MobileAccordionItemsInterfaceProps) {
   const category = Object.keys(items)[0];
-  const accordionItem = items[category]
+  const accordionItem = items[category];
   return (
     <AccordionItem>
       <AccordionButton>
         <Box my="5" flex="1" textAlign="left">
-          {category}
+          {category.charAt(0).toUpperCase() + category.slice(1)}
         </Box>
         <AccordionIcon />
       </AccordionButton>
