@@ -75,7 +75,7 @@ export default function Home({ fields, posts }: Props) {
           <InternalLink href="/play">
             <Button
               w={[350, 450, 650]}
-              mx="2rem"
+              mx={[0, 0, '2rem']}
               my="2rem"
               size="xl"
               variant="cta"
@@ -87,7 +87,7 @@ export default function Home({ fields, posts }: Props) {
           <ExternalLink
             href="https://wellington-seals.printmighty.co.nz/"
             isExternal
-            mx="2rem"
+            mx={[0, 0, '2rem']}
             my="2rem"
           >
             <Button
@@ -102,7 +102,7 @@ export default function Home({ fields, posts }: Props) {
           <InternalLink href="/play">
             <Button
               w={[350, 450, 650]}
-              mx="2rem"
+              mx={[0, 0, '2rem']}
               my="2rem"
               size="xl"
               variant="cta"
