@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -7,6 +8,8 @@ type LayoutProps = {
 };
 
 export default function Layout({ children }: LayoutProps) {
+  const router = useRouter();
+
   return (
     <div>
       <Head>
@@ -42,12 +45,12 @@ export default function Layout({ children }: LayoutProps) {
         <meta name="theme-color" content="#ffffff" />
         <meta
           property="og:url"
-          content="https://wiha.netlify.app/"
+          content={`https://wiha.nz/${router.pathname}`}
           key="ogurl"
         />
         <meta
           property="og:image"
-          content="/wiha-logos/logo.png"
+          content="https://wiha.netlify.app/_next/image?url=%2Fwiha-logos%2Flogo.png&w=256&q=50"
           key="ogimage"
         />
         <meta property="og:site_name" content="WIHA" key="ogsitename" />
@@ -58,7 +61,7 @@ export default function Layout({ children }: LayoutProps) {
         />
         <meta
           property="og:description"
-          content="The home of ice hockey in Wellington"
+          content="The home of ice hockey in Wellington. Our aim is to provide a fun & safe environment for players of all ages, abilities and genders to enjoy the great sport of Ice Hockey. New player? Retuning player? Casual player? We have hockey for everyone!"
           key="ogdesc"
         />
       </Head>
