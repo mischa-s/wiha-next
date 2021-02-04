@@ -40,6 +40,27 @@ export default function Layout({ children }: LayoutProps) {
         />
         <meta name="msapplication-TileColor" content="#ffc40d" />
         <meta name="theme-color" content="#ffffff" />
+        <meta
+          property="og:url"
+          content="https://wiha.netlify.app/"
+          key="ogurl"
+        />
+        <meta
+          property="og:image"
+          content="/wiha-logos/logo.png"
+          key="ogimage"
+        />
+        <meta property="og:site_name" content="WIHA" key="ogsitename" />
+        <meta
+          property="og:title"
+          content="Wellington Ice Hockey Association"
+          key="ogtitle"
+        />
+        <meta
+          property="og:description"
+          content="The home of ice hockey in Wellington"
+          key="ogdesc"
+        />
       </Head>
       <Header />
       <main>{children}</main>
