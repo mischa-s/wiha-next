@@ -5,7 +5,10 @@ import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import Layout from '../components/Layout';
 import { GenericContentfulPageInterface } from '../types';
 
-export default function StatsPage({ fields }: GenericContentfulPageInterface) {
+export default function StatsPage({
+  fields,
+  ogDescript,
+}: GenericContentfulPageInterface) {
   const {
     title,
     description,
@@ -21,6 +24,10 @@ export default function StatsPage({ fields }: GenericContentfulPageInterface) {
   return (
     <Layout>
       <Head>
+        <meta property="og:title" content={title} key="ogtitle" />
+        {ogDescript && (
+          <meta property="og:description" content={ogDescript} key="ogdesc" />
+        )}
         <title>{title}</title>
       </Head>
       <Flex direction="column" align="center" bg="blackAlpha.200" py="2rem">
