@@ -23,6 +23,19 @@ const colors = {
   },
 };
 
+const Table = {
+  sizes: {
+    sm: {
+      td: {
+        px: '.5rem',
+        '@media (min-width: 450px)': {
+          px: '1rem',
+        },
+      },
+    },
+  },
+};
+
 const Button = {
   baseStyle: {
     borderRadius: 'none',
@@ -138,6 +151,7 @@ const overrides = {
       ul: {
         marginLeft: '1rem',
       },
+      td: {},
     },
   },
   colors,
@@ -146,6 +160,7 @@ const overrides = {
     Button,
     Input,
     Menu,
+    Table,
   },
 };
 

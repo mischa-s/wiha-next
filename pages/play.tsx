@@ -54,13 +54,7 @@ export default function Play({ playTable, fields }: PlayProps) {
         <PlayTable playTable={playTable} />
         <Flex justify="center" wrap="wrap" mt="3rem">
           <InternalLink href="/equipment">
-            <Button
-              mb="2rem"
-              mr="5"
-              size="lg"
-              variant="wiha"
-              colorScheme="wiha"
-            >
+            <Button mb="2rem" size="lg" variant="wiha" colorScheme="wiha">
               Equpiment
             </Button>
           </InternalLink>
@@ -70,7 +64,7 @@ export default function Play({ playTable, fields }: PlayProps) {
           >
             <Button
               mb="2rem"
-              mr="5"
+              mx="5"
               size="lg"
               variant="wiha"
               colorScheme="wiha"
