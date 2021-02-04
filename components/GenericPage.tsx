@@ -5,10 +5,7 @@ import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import Layout from '../components/Layout';
 import { GenericContentfulPageInterface } from '../types';
 
-export default function StatsPage({
-  fields,
-  ogDescript,
-}: GenericContentfulPageInterface) {
+export default function StatsPage({ fields }: GenericContentfulPageInterface) {
   const {
     title,
     description,
@@ -17,6 +14,7 @@ export default function StatsPage({
     subtitle2,
     contentBlock2,
     images,
+    ogDescript,
   } = fields;
 
   const genericImages = images?.map((image) => image.fields);

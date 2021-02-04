@@ -25,8 +25,8 @@ export interface ContentfulImageInterface {
 }
 
 export interface GenericContentfulPageInterface {
-  ogDescript?: string;
   fields: {
+    ogDescript?: string;
     title: string;
     description: string;
     subtitle1: Document;
