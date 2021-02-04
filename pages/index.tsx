@@ -101,7 +101,7 @@ export default function Home({ fields, posts }: Props) {
               Buy Merch
             </Button>
           </ExternalLink>
-          <InternalLink href="/play">
+          <InternalLink href="/stats">
             <Button
               w={[325, 450, 650]}
               mx={[0, 0, '2rem']}

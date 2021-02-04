@@ -67,6 +67,9 @@ export default function Index() {
           Contact
         </Heading>
         <Text fontSize="lg" my="1rem" w={[350, 550, 700, 800]} px="1rem">
+          The rink is located at Unit 13a Brewtown, 25 Blenheim St, Upper Hutt.
+          <br />
+          <br />
           We are always keen to help people start playing or return to the great
           game of ice hockey! We&apos;re happy to answer any and all questions
           about ice hockey in Wellington, get in touch and let&apos;s get you on
