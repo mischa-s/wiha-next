@@ -82,7 +82,6 @@ const Button = {
       color: 'white',
       border: '1px solid transparent',
       _hover: {
-        // bg: '#fef21a',
         border: '1px solid white',
       },
     },
@@ -147,6 +146,12 @@ const overrides = {
 
       a: {
         color: 'wiha.700',
+        _hover: {
+          textDecoration: 'underline',
+        },
+        _focus: {
+          textDecoration: 'underline',
+        },
       },
       ul: {
         marginLeft: '1rem',

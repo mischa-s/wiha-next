@@ -29,6 +29,7 @@ export default function Footer() {
   const FooterLogo = styled.img`
     width: 25em;
     margin: auto;
+    padding: 1rem;
   `;
 
   const FooterPageLinks = styled.div`
