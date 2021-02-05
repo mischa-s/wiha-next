@@ -27,7 +27,7 @@ const Table = {
   sizes: {
     sm: {
       td: {
-        px: '.5rem',
+        px: '.3rem',
         '@media (min-width: 450px)': {
           px: '1rem',
         },

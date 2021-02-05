@@ -3,28 +3,17 @@ import { GetStaticProps } from 'next';
 import InternalLink from 'next/link';
 import {
   Button,
+  Box,
   Link as ExternalLink,
   Flex,
   Heading,
   Text,
 } from '@chakra-ui/react';
-import styled from '@emotion/styled';
 
 import PlayTable from '../components/PlayTable';
 import Layout from '../components/Layout';
 import { fetchEntry } from '../utils/contentfulPages';
 import { PlayTableRowInterface } from '../types';
-
-const MainSection = styled.section`
-display: flex;
-max-width: 900px;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-padding: 2rem;
-margin: auto;
-
-}`;
 
 type PlayProps = {
   playTable: PlayTableRowInterface[];
@@ -50,9 +39,13 @@ export default function Play({ playTable, fields }: PlayProps) {
           {description}
         </Text>
       </Flex>
-      <MainSection>
-        <PlayTable playTable={playTable} />
-        <Flex justify="center" wrap="wrap" mt="3rem">
+      <Flex my="2rem" justify="center">
+        <Box w={[350, 550, 700, 800]}>
+          <PlayTable playTable={playTable} />
+        </Box>
+      </Flex>
+      <Flex justify="center" mt="3rem" bg="blackAlpha.200">
+        <Flex wrap="wrap" mt="3rem" justify="center" w={[350, 550, 700, 800]}>
           <InternalLink href="/equipment">
             <Button mb="2rem" size="lg" variant="wiha" colorScheme="wiha">
               Equpiment
@@ -73,12 +66,12 @@ export default function Play({ playTable, fields }: PlayProps) {
             </Button>
           </ExternalLink>
           <InternalLink href="/contact">
-            <Button mb="2rem" size="lg" variant="wiha" colorScheme="wiha">
+            <Button mb="3rem" size="lg" variant="wiha" colorScheme="wiha">
               Location
             </Button>
           </InternalLink>
         </Flex>
-      </MainSection>
+      </Flex>
     </Layout>
   );
 }
