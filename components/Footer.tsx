@@ -28,7 +28,7 @@ export default function Footer() {
 
   const FooterLogo = styled.img`
     width: 25em;
-    margin: 1rem auto;
+    margin: auto;
   `;
 
   const FooterPageLinks = styled.div`
@@ -89,13 +89,6 @@ export default function Footer() {
             href="https://www.facebook.com/wellingtonicehockeyassociation/"
           >
             <SocialIcon src="/social-icons/facebook.svg" alt="Facebook" />
-          </ExternalLink>
-          <ExternalLink title="twitter" href="https://twitter.com">
-            <SocialIcon
-              className="fas fa-lg"
-              src="/social-icons/twitter.svg"
-              alt="Twitter"
-            />
           </ExternalLink>
           <ExternalLink
             title="instagram"
