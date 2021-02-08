@@ -80,7 +80,6 @@ export default function Home({ fields, posts }: Props) {
               h={[75, 100]}
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
-              colorScheme="gray"
             >
               Play Hockey
             </Button>
@@ -96,7 +95,6 @@ export default function Home({ fields, posts }: Props) {
               h={[75, 100]}
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
-              colorScheme="gray"
             >
               Buy Merch
             </Button>
@@ -109,7 +107,6 @@ export default function Home({ fields, posts }: Props) {
               h={[75, 100]}
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
-              colorScheme="gray"
             >
               Stats and Schedules
             </Button>

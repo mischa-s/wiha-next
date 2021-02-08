@@ -31,7 +31,6 @@ export default function Play({ posts }: Props) {
           Official announcments from WIHA can be found here. For more frequent
           communications about hockey in Wellington,&nbsp;
           <ExternalLink
-            color="wiha.700"
             isExternal
             title="WIHA facebook page"
             href="https://www.facebook.com/wellingtonicehockeyassociation/"
@@ -40,7 +39,6 @@ export default function Play({ posts }: Props) {
           </ExternalLink>
           &nbsp;or the&nbsp;
           <ExternalLink
-            color="wiha.700"
             isExternal
             title="Wellington ice hockey community facebook page"
             href="https://www.facebook.com/groups/wellyicehockey"

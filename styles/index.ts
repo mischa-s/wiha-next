@@ -53,7 +53,7 @@ const Button = {
   variants: {
     cta: {
       bg: 'rgba(255,255,255, 0.70)',
-      color: 'blackAlpha',
+      color: 'black',
       fontWeight: 'bold',
       border: '1px solid transparent',
 
@@ -134,6 +134,12 @@ const fonts = {
   mono: 'Menlo, monospace',
 };
 
+const Link = {
+  baseStyle: {
+    color: 'wiha.800',
+  },
+};
+
 const overrides = {
   styles: {
     global: {
@@ -145,7 +151,7 @@ const overrides = {
       },
 
       a: {
-        color: 'wiha.700',
+        color: 'wiha.800',
         _hover: {
           textDecoration: 'underline',
         },
@@ -164,6 +170,7 @@ const overrides = {
   components: {
     Button,
     Input,
+    Link,
     Menu,
     Table,
   },
