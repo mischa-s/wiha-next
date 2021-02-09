@@ -121,7 +121,12 @@ export default function Home({ fields, posts }: Props) {
           <BlogRoll posts={posts} />
         </Box>
         <InternalLink href="/news">
-          <Button my="1rem" size="lg" variant="outline">
+          <Button
+            my="1rem"
+            size="lg"
+            variant="outline"
+            colorScheme="blackAlpha"
+          >
             Read More
           </Button>
         </InternalLink>

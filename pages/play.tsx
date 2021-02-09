@@ -47,7 +47,12 @@ export default function Play({ playTable, fields }: PlayProps) {
       <Flex justify="center" mt="3rem" bg="blackAlpha.200">
         <Flex wrap="wrap" mt="3rem" justify="center" w={[350, 550, 700, 800]}>
           <InternalLink href="/equipment">
-            <Button mb="2rem" size="lg" variant="wiha" colorScheme="wiha">
+            <Button
+              mb="2rem"
+              size="lg"
+              variant="outline"
+              colorScheme="blackAlpha"
+            >
               Equpiment
             </Button>
           </InternalLink>
@@ -59,14 +64,19 @@ export default function Play({ playTable, fields }: PlayProps) {
               mb="2rem"
               mx="5"
               size="lg"
-              variant="wiha"
-              colorScheme="wiha"
+              variant="outline"
+              colorScheme="blackAlpha"
             >
               Register now
             </Button>
           </ExternalLink>
           <InternalLink href="/contact">
-            <Button mb="3rem" size="lg" variant="wiha" colorScheme="wiha">
+            <Button
+              mb="3rem"
+              size="lg"
+              variant="outline"
+              colorScheme="blackAlpha"
+            >
               Location
             </Button>
           </InternalLink>

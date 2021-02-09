@@ -77,6 +77,15 @@ const Button = {
         border: '1px solid black',
       },
     },
+    outline: {
+      backgroundColor: 'transparent',
+      color: 'black',
+      border: '1px solid black',
+      _hover: {
+        bg: '#fef21a',
+        border: '1px solid black',
+      },
+    },
     secondary: {
       backgroundColor: 'black',
       color: 'white',
@@ -136,7 +145,8 @@ const fonts = {
 
 const Link = {
   baseStyle: {
-    color: 'wiha.800',
+    fontWeight: 'bold',
+    textDecoration: 'underline',
   },
 };
 
@@ -151,12 +161,13 @@ const overrides = {
       },
 
       a: {
-        color: 'wiha.800',
+        fontWeight: 'bold',
+        textDecoration: 'underline',
         _hover: {
-          textDecoration: 'underline',
+          color: 'rgba(0, 0, 0, 0.70)',
         },
         _focus: {
-          textDecoration: 'underline',
+          color: 'rgba(0, 0, 0, 0.70)',
         },
       },
       ul: {

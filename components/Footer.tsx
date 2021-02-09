@@ -54,10 +54,7 @@ export default function Footer() {
 
   return (
     <FooterWrapper>
-      <FooterLogo
-        src="/wiha-logos/logo-horizontal-yellow-outline.png"
-        alt="WIHA"
-      />
+      <FooterLogo src="/wiha-logos/logo-horizontal.png" alt="WIHA" />
       <LinksWrapper>
         <FooterPageLinks>
           <Link href="/">

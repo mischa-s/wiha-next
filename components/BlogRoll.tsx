@@ -1,4 +1,4 @@
-import { Button, Heading, Flex, Text } from '@chakra-ui/react';
+import { Heading, Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
 import Post from '../components/Post';
@@ -29,9 +29,9 @@ export default function BlogRoll({ posts }: BlogRollProps) {
               <p>{description}</p>
 
               <Post post={post} />
-              <Button mb={10} variant="link">
+              <Text mt="1rem" mb="2rem">
                 <Link href={`/news/${slug}`}>Keep Reading →</Link>
-              </Button>
+              </Text>
             </div>
           );
         })}
