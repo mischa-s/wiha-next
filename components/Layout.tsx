@@ -61,7 +61,7 @@ export default function Layout({ children }: LayoutProps) {
         />
         <meta
           property="og:description"
-          content="The home of ice hockey in Wellington. Our aim is to provide a fun & safe environment for players of all ages, abilities and genders to enjoy the great sport of Ice Hockey. New player? Retuning player? Casual player? We have hockey for everyone!"
+          content="The home of ice hockey in Wellington. New player? Retuning player? Casual player? The Wellington ice hockey association (WIHA) has leagues and trainings for everyone!"
           key="ogdesc"
         />
       </Head>
