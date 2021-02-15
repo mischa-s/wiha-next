@@ -30,6 +30,11 @@ export default function Play({ playTable, fields }: PlayProps) {
     <Layout>
       <Head>
         <title>{title}</title>
+        <meta
+          property="og:description"
+          content="Find all the information you need to start playing ice hockey in Wellington!"
+          key="ogdesc"
+        />
       </Head>
       <Flex direction="column" align="center" bg="blackAlpha.200" py="2rem">
         <Heading as="h1" size="lg" textAlign="center" my={2}>
