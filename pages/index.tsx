@@ -115,9 +115,10 @@ export default function Home({ fields, posts }: Props) {
       </Hero>
       <Flex direction="column" align="center">
         <Box mt="3rem" px="1.5rem" w={[350, 550, 700, 800]}>
-          <Heading as="h2" size="lg" textAlign="center">
-            Latest news
+          <Heading as="h1" size="lg" textAlign="center">
+            Wellington ice hockey news
           </Heading>
+          <p>Find the latest info about playing ice hockey in Wellington</p>
           <BlogRoll posts={posts} />
         </Box>
         <InternalLink href="/news">

@@ -25,7 +25,7 @@ interface Props {
   };
 }
 
-export default function Play({ boardMembers, fields }: Props) {
+export default function About({ boardMembers, fields }: Props) {
   const { title, description, subtitle } = fields;
 
   return (
@@ -65,7 +65,7 @@ export default function Play({ boardMembers, fields }: Props) {
                     w={[125, 150, 200]}
                     objectFit="cover"
                     src={imageURL ?? '/wiha-logos/logo.png'}
-                    alt={`image thumbnail for post ${name}`}
+                    alt={`image thumbnail for ${name}`}
                   />
                   <Text>{name}</Text>
                   <Text>{imageTitle}</Text>

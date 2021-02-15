@@ -64,6 +64,16 @@ export default function Layout({ children }: LayoutProps) {
           content="The home of ice hockey in Wellington. New player? Retuning player? Casual player? The Wellington ice hockey association (WIHA) has leagues and trainings for everyone!"
           key="ogdesc"
         />
+        <meta
+          name="title"
+          content="Wellington Ice Hockey Association"
+          key="title"
+        />
+        <meta
+          name="description"
+          content="The home of ice hockey in Wellington. New player? Retuning player? Casual player? The Wellington ice hockey association (WIHA) has leagues and trainings for everyone!"
+          key="description"
+        />
       </Head>
       <Header />
       <main>{children}</main>

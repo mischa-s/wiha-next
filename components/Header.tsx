@@ -287,7 +287,7 @@ export default function Header() {
                   src="/wiha-logos/logo.png"
                   width="125"
                   height="125"
-                  alt="WIHA"
+                  alt="WIHA logo"
                 />
               </ChakraLink>
             </Link>
