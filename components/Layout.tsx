@@ -61,7 +61,7 @@ export default function Layout({ children }: LayoutProps) {
         />
         <meta
           property="og:description"
-          content="The home of ice hockey in Wellington. New player? Retuning player? Casual player? The Wellington ice hockey association (WIHA) has leagues and trainings for everyone!"
+          content="New player? Retuning player? Casual player? Wellington ice hockey association has leagues and trainings for everyone!"
           key="ogdesc"
         />
         <meta
@@ -71,9 +71,10 @@ export default function Layout({ children }: LayoutProps) {
         />
         <meta
           name="description"
-          content="The home of ice hockey in Wellington. New player? Retuning player? Casual player? The Wellington ice hockey association (WIHA) has leagues and trainings for everyone!"
+          content="New player? Retuning player? Casual player? Wellington ice hockey association has leagues and trainings for everyone!"
           key="description"
         />
+        <title>Wellington Ice Hockey Association</title>
       </Head>
       <Header />
       <main>{children}</main>
