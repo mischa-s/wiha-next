@@ -7,6 +7,7 @@ import {
   Button,
   Heading,
   Flex,
+  Text
 } from '@chakra-ui/react';
 
 import styled from '@emotion/styled';
@@ -118,7 +119,9 @@ export default function Home({ fields, posts }: Props) {
           <Heading as="h1" size="lg" textAlign="center">
             Wellington ice hockey news
           </Heading>
-          <p>Find the latest info about playing ice hockey in Wellington</p>
+          <br />
+          <Text textAlign="center">Find the latest info about playing ice hockey in Wellington</Text>
+          <br />
           <BlogRoll posts={posts} />
         </Box>
         <InternalLink href="/news">
