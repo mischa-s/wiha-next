@@ -7,7 +7,7 @@ import scheduleData from '../sheetsData/bearSchedule';
 export default function BearPage({ fields }: GenericContentfulPageInterface) {
   return (
     <GenericPage fields={fields}>
-      <Schedule scheduleData={scheduleData} />
+      <Schedule scheduleData={scheduleData} gameTimes={['7:00', '8:15']} />
     </GenericPage>
   );
 }

@@ -7,9 +7,10 @@ function formatDate(date: string) {
 
 interface ScheduleProps {
   scheduleData: Array<Array<string>>;
+  gameTimes: Array<string>;
 }
 
-export default function Schedule({ scheduleData }: ScheduleProps) {
+export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
   return (
     <>
       <Heading as="h2" size="md" textAlign="center" m="2rem 1rem">
@@ -43,7 +44,7 @@ export default function Schedule({ scheduleData }: ScheduleProps) {
                     bg="blackAlpha.200"
                     p="1rem 1.5rem"
                   >
-                    <b>6:15 &nbsp;</b>
+                    <b>{gameTimes[0]} &nbsp;</b>
                     {row[4]}
                     &nbsp;vs.&nbsp;
                     {row[5]}
@@ -54,7 +55,7 @@ export default function Schedule({ scheduleData }: ScheduleProps) {
                     bg="blackAlpha.200"
                     p="1rem 1.5rem"
                   >
-                    <b>7:30 &nbsp;</b>
+                    <b>{gameTimes[1]} &nbsp;</b>
                     {row[6]}
                     &nbsp;vs.&nbsp;
                     {row[7]}

@@ -9,7 +9,7 @@ export default function FrozenFoursPage({
 }: GenericContentfulPageInterface) {
   return (
     <GenericPage fields={fields}>
-      <Schedule scheduleData={scheduleData} />
+      <Schedule scheduleData={scheduleData} gameTimes={['6:15', '7:30']} />
     </GenericPage>
   );
 }
