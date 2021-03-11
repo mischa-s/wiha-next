@@ -25,6 +25,7 @@ export interface ContentfulImageInterface {
 }
 
 export interface GenericContentfulPageInterface {
+  children?: JSX.Element;
   fields: {
     ogDescript?: string;
     title: string;

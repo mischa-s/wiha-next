@@ -5,7 +5,10 @@ import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import Layout from '../components/Layout';
 import { GenericContentfulPageInterface } from '../types';
 
-export default function StatsPage({ fields }: GenericContentfulPageInterface) {
+export default function StatsPage({
+  fields,
+  children,
+}: GenericContentfulPageInterface) {
   const {
     title,
     description,
@@ -28,6 +31,7 @@ export default function StatsPage({ fields }: GenericContentfulPageInterface) {
         )}
         <title>{title}</title>
       </Head>
+
       <Flex direction="column" align="center" bg="blackAlpha.200" py="2rem">
         <Heading as="h1" size="lg" textAlign="center" my={2}>
           {title}
@@ -36,13 +40,18 @@ export default function StatsPage({ fields }: GenericContentfulPageInterface) {
           {description}
         </Text>
       </Flex>
+
       <Flex direction="column" align="center" py="2rem">
+        {children}
+
         <Heading as="h2" size="md" textAlign="center" m="2rem 1rem 0">
           {subtitle1}
         </Heading>
+
         <Box my="1rem" w={[350, 550, 700, 800]} px="1rem">
           {documentToReactComponents(contentBlock1)}
         </Box>
+
         {genericImages?.map((image) => {
           const { title: imageTitle, file } = image;
           const imageURL = file?.url;
@@ -59,9 +68,11 @@ export default function StatsPage({ fields }: GenericContentfulPageInterface) {
             </Box>
           );
         })}
+
         <Heading as="h2" size="md" textAlign="center" m="2rem 1rem 0">
           {documentToReactComponents(subtitle2)}
         </Heading>
+
         <Box my="1rem" w={[350, 550, 700, 800]} px="1rem">
           {documentToReactComponents(contentBlock2)}
         </Box>

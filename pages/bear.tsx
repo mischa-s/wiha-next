@@ -1,9 +1,16 @@
 import GenericPage from '../components/GenericPage';
+import Schedule from '../components/Schedule';
 import { GenericContentfulPageInterface } from '../types';
 import { fetchEntry } from '../utils/contentfulPages';
 
 export default function BearPage({ fields }: GenericContentfulPageInterface) {
-  return <GenericPage fields={fields} />;
+  const sheet = '1jsZI8NV0KhKXbzwys6jdhOZbuLxwP1dm2EhCdTrTq1c';
+
+  return (
+    <GenericPage fields={fields}>
+      <Schedule sheet={sheet} />
+    </GenericPage>
+  );
 }
 
 export async function getStaticProps() {
