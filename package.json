@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run fetch-spreadsheet-data && next build",
     "start": "next start",
-    "lint": "eslint --ext .jsx,.js,.tsx,.ts  ."
+    "lint": "eslint --ext .jsx,.js,.tsx,.ts  .",
+    "fetch-spreadsheet-data": "node -r dotenv/config bin/fetchGoogleData.js"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.3",
@@ -19,7 +20,9 @@
     "axios": "^0.21.1",
     "contentful": "^8.1.7",
     "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
     "framer-motion": "^3.2.2-rc.1",
+    "googleapis": "^67.1.1",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1"
