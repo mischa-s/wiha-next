@@ -24,9 +24,8 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
               <div key={`${day}-${month}`}>
                 <Wrap align="center" key={row[0]} m={3}>
                   <Center
-                    minW={['375px', '250px']}
                     width="100%"
-                    bg="blackAlpha.800"
+                    bg={row[10] ? 'blackAlpha.700' : 'blackAlpha.800'}
                     color="whiteAlpha.900"
                     p="1rem"
                   >
@@ -39,26 +38,30 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                     </b>
                   </Center>
                   <Text
-                    minW={['375px', '250px']}
+                    minW={['400px']}
                     width={['100%', '100%', 1 / 2]}
                     bg="blackAlpha.200"
                     p="1rem 1.5rem"
                   >
                     <b>{gameTimes[0]} &nbsp;</b>
                     {row[4]}
+                    {row[10] && ` (${row[10]})`}
                     &nbsp;vs.&nbsp;
                     {row[5]}
+                    {row[11] && ` (${row[11]})`}
                   </Text>
                   <Text
-                    minW={['375px', '250px']}
+                    minW={['400px']}
                     width={['100%', '100%', 1 / 2]}
                     bg="blackAlpha.200"
                     p="1rem 1.5rem"
                   >
                     <b>{gameTimes[1]} &nbsp;</b>
                     {row[6]}
+                    {row[12] && ` (${row[12]})`}
                     &nbsp;vs.&nbsp;
                     {row[7]}
+                    {row[13] && ` (${row[13]})`}
                   </Text>
                 </Wrap>
               </div>
