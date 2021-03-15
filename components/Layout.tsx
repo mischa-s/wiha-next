@@ -50,7 +50,7 @@ export default function Layout({ children }: LayoutProps) {
         />
         <meta
           property="og:image"
-          content="https://wiha.netlify.app/_next/image?url=%2Fwiha-logos%2Flogo-social-sharing-2.png&w=1200&q=50"
+          content="https://wiha.nz/wiha-logos/logo-social-sharing-2.png"
           key="ogimage"
         />
         <meta property="og:site_name" content="WIHA" key="ogsitename" />
