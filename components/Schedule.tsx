@@ -19,13 +19,33 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
       <>
         {scheduleData &&
           scheduleData.map((row) => {
-            const { day, month, year } = formatDate(row[1]);
+            const [
+              gameNumber,
+              gateDate,
+              ,
+              ,
+              // gamePlayed
+              // roster version
+              team1,
+              team2,
+              team3,
+              team4,
+              game1result,
+              ,
+              team1score,
+              team2score,
+              team3score,
+              team4score,
+            ] = row;
+
+            const { day, month, year } = formatDate(gateDate);
+
             return (
               <div key={`${day}-${month}`}>
-                <Wrap align="center" key={row[0]} m={3}>
+                <Wrap align="center" key={gameNumber} m={3}>
                   <Center
                     width="100%"
-                    bg={row[10] ? 'blackAlpha.700' : 'blackAlpha.800'}
+                    bg={game1result ? 'blackAlpha.700' : 'blackAlpha.800'}
                     color="whiteAlpha.900"
                     p="1rem"
                   >
@@ -38,30 +58,32 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                     </b>
                   </Center>
                   <Text
-                    minW={['400px']}
+                    minW={['350px', '400px']}
                     width={['100%', '100%', 1 / 2]}
                     bg="blackAlpha.200"
                     p="1rem 1.5rem"
                   >
-                    <b>{gameTimes[0]} &nbsp;</b>
-                    {row[4]}
-                    {row[10] && ` (${row[10]})`}
+                    <b>
+                      {gameTimes[0]}
+                      &nbsp;
+                    </b>
+                    {team1score ? `${team1} (${team1score})` : team1}
                     &nbsp;vs.&nbsp;
-                    {row[5]}
-                    {row[11] && ` (${row[11]})`}
+                    {team2score ? `${team2} (${team2score})` : team2}
                   </Text>
                   <Text
-                    minW={['400px']}
+                    minW={['350px', '400px']}
                     width={['100%', '100%', 1 / 2]}
                     bg="blackAlpha.200"
                     p="1rem 1.5rem"
                   >
-                    <b>{gameTimes[1]} &nbsp;</b>
-                    {row[6]}
-                    {row[12] && ` (${row[12]})`}
+                    <b>
+                      {gameTimes[1]}
+                      &nbsp;
+                    </b>
+                    {team3score ? `${team3} (${team3score})` : team3}
                     &nbsp;vs.&nbsp;
-                    {row[7]}
-                    {row[13] && ` (${row[13]})`}
+                    {team4score ? `${team4} (${team4score})` : team4}
                   </Text>
                 </Wrap>
               </div>

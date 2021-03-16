@@ -7,6 +7,11 @@ const scheduleRange = "'Fixtures%20%2B%20Results'!A3%3AN16";
 const foursSheet = '1oVAQjP83uPltfgeyRLZ9S2EHfgnbGwdSA5qrMYtYNC4';
 const bearSheet = '1jsZI8NV0KhKXbzwys6jdhOZbuLxwP1dm2EhCdTrTq1c';
 
+function prepareJSON(values) {
+  const json = JSON.stringify(values);
+  return json.replaceAll('Ice Bunny Brawlers', 'Ice Bunnies');
+}
+
 const fetchData = async (sheet, range) => {
   // const rangeQuery = ranges.map(range => `ranges=${range}`)
   const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${sheet}/values:batchGet?ranges=${range}&access_token=${googleKey}&key=${googleKey}`;
@@ -25,9 +30,9 @@ const fetchData = async (sheet, range) => {
 async function fetchScheduleData(filename, sheet) {
   const valueRanges = await fetchData(sheet, scheduleRange);
 
-  const scheduleArray = valueRanges[0].values;
+  const scheduleArray = prepareJSON(valueRanges[0].values);
 
-  const content = `export default ${JSON.stringify(scheduleArray)}`;
+  const content = `export default ${scheduleArray}`;
 
   try {
     fs.writeFileSync(
