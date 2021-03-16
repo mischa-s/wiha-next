@@ -9,7 +9,7 @@ const bearSheet = '1jsZI8NV0KhKXbzwys6jdhOZbuLxwP1dm2EhCdTrTq1c';
 
 function prepareJSON(values) {
   const json = JSON.stringify(values);
-  return json.replaceAll('Ice Bunny Brawlers', 'Ice Bunnies');
+  return json.replace(/Ice Bunny Brawlers/g, 'Ice Bunnies');
 }
 
 const fetchData = async (sheet, range) => {
