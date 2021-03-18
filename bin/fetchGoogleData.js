@@ -34,12 +34,15 @@ async function fetchScheduleData(filename, sheet) {
 
   const content = `export default ${scheduleArray}`;
 
+  console.log(`writing spreadsheet data to ${filename}`)
+
   try {
     fs.writeFileSync(
       path.join(__dirname, '../', 'sheetsData', `${filename}.ts`),
       content
     );
   } catch (err) {
+    console.log(`failed to write spreadsheet data to ${filename}`)
     console.error(err);
   }
 }
@@ -52,5 +55,6 @@ function fetchBearData() {
   fetchScheduleData('bearSchedule', bearSheet);
 }
 
+console.log('Fetching spreadsheet data')
 fetchFoursData();
 fetchBearData();
