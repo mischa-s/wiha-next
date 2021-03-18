@@ -1,21 +1,20 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useTable, useBlockLayout } from 'react-table';
+import { useTable, useBlockLayout, useSortBy } from 'react-table';
 import { useSticky } from 'react-table-sticky';
 
 import { Box, Heading, Text, Wrap } from '@chakra-ui/react';
-import statsData from '../sheetsData/foursTeamStats';
 
 interface StatsTableProps {
   scheduleData: Array<Array<string>>;
   gameTimes: Array<string>;
 }
 
-export default function StatsTable() {
+export default function StatsTable({ data }) {
   return (
     <>
       <Heading as="h2" size="md" textAlign="center" m="2rem 1rem">
-        <TableDemo />
+        <TableDemo data={data} />
       </Heading>
     </>
   );
@@ -40,7 +39,6 @@ const Styles = styled.div`
       }
     }
 
-    .th,
     .td {
       padding: 5px;
       border-bottom: 1px solid #ddd;
@@ -55,20 +53,22 @@ const Styles = styled.div`
       :not([data-sticky-td]) {
         flex-grow: 1;
       }
+    }
 
-      .resizer {
-        display: inline-block;
-        width: 5px;
-        height: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        transform: translateX(50%);
-        z-index: 1;
+    .th {
+      padding: 5px;
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      background-color: #000;
+      color: #fff;
+      overflow: hidden;
 
-        &.isResizing {
-          background: red;
-        }
+      :last-child {
+        border-right: 0;
+      }
+
+      :not([data-sticky-td]) {
+        flex-grow: 1;
       }
     }
 
@@ -84,12 +84,6 @@ const Styles = styled.div`
 
       .header {
         top: 0;
-        box-shadow: 0px 3px 3px #ccc;
-      }
-
-      .footer {
-        bottom: 0;
-        box-shadow: 0px -3px 3px #ccc;
       }
 
       .body {
@@ -102,22 +96,19 @@ const Styles = styled.div`
       }
 
       [data-sticky-last-left-td] {
-        box-shadow: 2px 0px 3px #ccc;
-      }
-
-      [data-sticky-first-right-td] {
-        box-shadow: -2px 0px 3px #ccc;
+        border-right-width: 2px;
       }
     }
   }
 `;
 
-function TableDemo() {
+function TableDemo({ data }) {
   const columns = [
     {
       Header: 'Team',
       accessor: 'Teams',
       sticky: 'left',
+      width: '175',
     },
     {
       Header: 'GP',
@@ -170,14 +161,15 @@ function TableDemo() {
   } = useTable(
     {
       columns,
-      data: statsData,
+      data,
     },
     useBlockLayout,
-    useSticky
+    useSticky,
+    useSortBy
   );
 
   return (
-    <Box w={[400, 500, 700, 900, 1200, 1400]}>
+    <Box w={[400, 500, 800]}>
       <Styles>
         <div {...getTableProps()} className="table sticky">
           <div className="header">
