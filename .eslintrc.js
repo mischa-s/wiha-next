@@ -24,10 +24,12 @@ const config = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'consistent-return': 'off',
-    'no-console': 'off',
+    'no-console': 'warn',
+    'no-nested-ternary': 'off',
   },
   globals: {
     React: 'writable',

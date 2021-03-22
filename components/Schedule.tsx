@@ -42,10 +42,15 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
 
             return (
               <div key={`${day}-${month}`}>
-                <Wrap align="center" key={gameNumber} m={3}>
+                <Wrap
+                  w={[350, 550, 700, 800]}
+                  align="center"
+                  key={gameNumber}
+                  m={3}
+                >
                   <Center
                     width="100%"
-                    bg={game1result ? 'blackAlpha.700' : 'blackAlpha.800'}
+                    bg={game1result ? 'blackScale.600' : 'blackScale.700'}
                     color="whiteAlpha.900"
                     p="1rem"
                   >
@@ -60,7 +65,7 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                   <Text
                     minW={['350px', '400px']}
                     width={['100%', '100%', 1 / 2]}
-                    bg="blackAlpha.200"
+                    bg="blackScale.50"
                     p="1rem 1.5rem"
                   >
                     <b>
@@ -74,7 +79,7 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                   <Text
                     minW={['350px', '400px']}
                     width={['100%', '100%', 1 / 2]}
-                    bg="blackAlpha.200"
+                    bg="blackScale.50"
                     p="1rem 1.5rem"
                   >
                     <b>

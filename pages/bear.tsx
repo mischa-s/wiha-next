@@ -10,10 +10,10 @@ import statsData from '../sheetsData/bearTeamStats';
 function BearsChildren() {
   return (
     <>
-      {/* <Heading as="h2" size="md" textAlign="center" m="2rem 1rem">
+      <Heading as="h2" size="md" textAlign="center" m="2rem 1rem">
         Standings
       </Heading>
-      <StatsTable data={statsData} /> */}
+      <StatsTable data={statsData} />
       <Schedule scheduleData={scheduleData} gameTimes={['7:00', '8:15']} />
     </>
   );

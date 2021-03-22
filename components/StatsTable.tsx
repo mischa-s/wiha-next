@@ -1,37 +1,23 @@
-import React from 'react';
+import { useMemo } from 'react';
 import styled from '@emotion/styled';
 import { useTable, useBlockLayout, useSortBy } from 'react-table';
 import { useSticky } from 'react-table-sticky';
 
-import { Box, Heading, Text, Wrap } from '@chakra-ui/react';
-
-interface StatsTableProps {
-  scheduleData: Array<Array<string>>;
-  gameTimes: Array<string>;
-}
-
-export default function StatsTable({ data }) {
-  return (
-    <>
-      <Heading as="h2" size="md" textAlign="center" m="2rem 1rem">
-        <TableDemo data={data} />
-      </Heading>
-    </>
-  );
-}
+import { Box } from '@chakra-ui/react';
 
 const Styles = styled.div`
   /* This is required to make the table full-width */
   display: block;
   max-width: 100%;
 
-  padding: 1rem;
-
   .table {
     border: 1px solid #ddd;
 
     .tr {
       min-width: 100%;
+      font-weight: bold;
+      text-align: center;
+
       :last-child {
         .td {
           border-bottom: 0;
@@ -59,7 +45,7 @@ const Styles = styled.div`
       padding: 5px;
       border-bottom: 1px solid #ddd;
       border-right: 1px solid #ddd;
-      background-color: #000;
+      background-color: #323232;
       color: #fff;
       overflow: hidden;
 
@@ -102,55 +88,67 @@ const Styles = styled.div`
   }
 `;
 
-function TableDemo({ data }) {
-  const columns = [
-    {
-      Header: 'Team',
-      accessor: 'Teams',
-      sticky: 'left',
-      width: '175',
-    },
-    {
-      Header: 'GP',
-      accessor: 'Games-Played',
-      width: '50',
-    },
-    {
-      Header: 'P',
-      accessor: 'Points',
-      width: '50',
-    },
-    {
-      Header: 'W',
-      accessor: 'Wins',
-      width: '50',
-    },
-    {
-      Header: 'L',
-      accessor: 'Losses',
-      width: '50',
-    },
-    {
-      Header: 'D',
-      accessor: 'Draws',
-      width: '50',
-    },
-    {
-      Header: '+/-',
-      accessor: 'Goal-Difference',
-      width: '50',
-    },
-    {
-      Header: 'GA',
-      accessor: 'Goals-Against',
-      width: '50',
-    },
-    {
-      Header: 'GF',
-      accessor: 'Goals-For',
-      width: '50',
-    },
-  ];
+function TeamsTable({ data }) {
+  const columns = useMemo(
+    () => [
+      {
+        Header: 'Team',
+        accessor: 'Teams',
+        sticky: 'left',
+        width: '175',
+        sortDescFirst: true,
+      },
+      {
+        Header: 'GP',
+        accessor: 'Games-Played',
+        width: '50',
+        sortDescFirst: true,
+      },
+      {
+        Header: 'P',
+        accessor: 'Points',
+        width: '50',
+        sortDescFirst: true,
+      },
+      {
+        Header: 'W',
+        accessor: 'Wins',
+        width: '50',
+        sortDescFirst: true,
+      },
+      {
+        Header: 'L',
+        accessor: 'Losses',
+        width: '50',
+        sortDescFirst: true,
+      },
+      {
+        Header: 'D',
+        accessor: 'Draws',
+        width: '50',
+        sortDescFirst: true,
+      },
+      {
+        Header: '+/-',
+        accessor: 'Goal-Difference',
+        width: '50',
+        sortDescFirst: true,
+      },
+      {
+        Header: 'GA',
+        accessor: 'Goals-Against',
+        width: '50',
+        sortDescFirst: true,
+      },
+      {
+        Header: 'GF',
+        accessor: 'Goals-For',
+        width: '50',
+        sortDescFirst: true,
+      },
+    ],
+    []
+  );
 
   const {
     getTableProps,
@@ -162,6 +160,14 @@ function TableDemo({ data }) {
     {
       columns,
       data,
+      initialState: {
+        sortBy: [
+          { id: 'Points', desc: true },
+          { id: 'Wins', desc: true },
+          { id: 'Goal-Difference', desc: true },
+          { id: 'Goal-For', desc: true },
+        ],
+      },
     },
     useBlockLayout,
     useSticky,
@@ -169,27 +175,36 @@ function TableDemo({ data }) {
   );
 
   return (
-    <Box w={[400, 500, 800]}>
+    <Box w={[350, 550, 700, 800]}>
       <Styles>
         <div {...getTableProps()} className="table sticky">
           <div className="header">
-            {headerGroups.map((headerGroup) => (
-              <div {...headerGroup.getHeaderGroupProps()} className="tr">
-                {headerGroup.headers.map((column) => (
-                  <div {...column.getHeaderProps()} className="th">
-                    {column.render('Header')}
-                  </div>
-                ))}
-              </div>
-            ))}
+            <div {...headerGroups[0].getHeaderGroupProps()} className="tr">
+              {headerGroups[0].headers.map((column) => (
+                <div
+                  key={column.Header}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                  className="th"
+                >
+                  {column.render('Header')}
+                  <span>
+                    {column.isSorted ? (column.isSortedDesc ? ' 🠗' : ' 🠕') : ''}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
           <div {...getTableBodyProps()} className="body">
             {rows.map((row) => {
               prepareRow(row);
               return (
-                <div {...row.getRowProps()} className="tr">
+                <div key={row.original} {...row.getRowProps()} className="tr">
                   {row.cells.map((cell) => (
-                    <div {...cell.getCellProps()} className="td">
+                    <div
+                      key={{ ...row.original, ...cell.column }}
+                      {...cell.getCellProps()}
+                      className="td s"
+                    >
                       {cell.render('Cell')}
                     </div>
                   ))}
@@ -200,5 +215,27 @@ function TableDemo({ data }) {
         </div>
       </Styles>
     </Box>
+  );
+}
+
+interface StatsTableProps {
+  data: Array<{
+    Teams: string;
+    Points: string;
+    Wins: string;
+    Losses: string;
+    Draws: string;
+    'Games-Played': string;
+    'Goal-Difference': string;
+    'Goals-Against': string;
+    'Goals-For': string;
+  }>;
+}
+
+export default function StatsTable({ data }: StatsTableProps) {
+  return (
+    <>
+      <TeamsTable data={data} />
+    </>
   );
 }
