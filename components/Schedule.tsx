@@ -18,7 +18,7 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
       </Heading>
       <>
         {scheduleData &&
-          scheduleData.map((row) => {
+          scheduleData.map((row, idx) => {
             const [
               gameNumber,
               gateDate,
@@ -55,11 +55,12 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                     p="1rem"
                   >
                     <b>
+                      {idx === 0 ? '(Pre-Season): ' : `Game ${idx}: `}
+                      &nbsp;
                       {month}
                       &nbsp;
                       {day}
-                      ,&nbsp;
-                      {year}
+                      &nbsp;
                     </b>
                   </Center>
                   <Text
