@@ -30,8 +30,9 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
               team2,
               team3,
               team4,
-              game1result,
               ,
+              ,
+              // game1result
               team1score,
               team2score,
               team3score,
@@ -50,7 +51,7 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                 >
                   <Center
                     width="100%"
-                    bg={game1result ? 'blackScale.600' : 'blackScale.700'}
+                    bg={team1score ? 'blackScale.600' : 'blackScale.700'}
                     color="whiteAlpha.900"
                     p="1rem"
                   >
