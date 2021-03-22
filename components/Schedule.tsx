@@ -21,7 +21,7 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
           scheduleData.map((row, idx) => {
             const [
               gameNumber,
-              gateDate,
+              gameDate,
               ,
               ,
               // gamePlayed
@@ -38,7 +38,7 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
               team4score,
             ] = row;
 
-            const { day, month, year } = formatDate(gateDate);
+            const { day, month } = formatDate(gameDate);
 
             return (
               <div key={`${day}-${month}`}>
