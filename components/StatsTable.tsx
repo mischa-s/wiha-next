@@ -95,7 +95,7 @@ function TeamsTable({ data }) {
         Header: 'Team',
         accessor: 'Teams',
         sticky: 'left',
-        width: '175',
+        width: '150',
         sortDescFirst: true,
       },
       {
@@ -133,6 +133,7 @@ function TeamsTable({ data }) {
         accessor: 'Goal-Difference',
         width: '50',
         sortDescFirst: true,
+        sortType: (a, b) => a - b,
       },
       {
         Header: 'GA',
@@ -160,6 +161,7 @@ function TeamsTable({ data }) {
     {
       columns,
       data,
+      maxMultiSortColCount: 4,
       initialState: {
         sortBy: [
           { id: 'Points', desc: true },
