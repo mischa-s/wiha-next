@@ -54,3 +54,38 @@ export interface PlayTableRowInterface {
   day: string;
   time: string;
 }
+
+export interface TeamsStatsInterface {
+  Teams: string;
+  Points: string;
+  Wins: string;
+  Losses: string;
+  Draws: string;
+  'Games-Played': string;
+  'Goal-Difference': string;
+  'Goals-Against': string;
+  'Goals-For': string;
+}
+
+export interface PlayersStatsInterface {
+  Name: string;
+  League: string;
+  Team: string;
+  Position: string;
+  'Games-Played': string;
+  Goals: string;
+  Assists: string;
+  'Total-Points': string;
+  'Points-per Game'?: string;
+}
+
+export interface GoaliesStatsInterface {
+  Name: string;
+  League: string;
+  Team: string;
+  Position: string;
+  'Games-Played': string;
+  'Goals-Against': string;
+  'Total-Shots': string;
+  'Save-%': string;
+}

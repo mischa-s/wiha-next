@@ -1,7 +1,7 @@
 import { Heading } from '@chakra-ui/react';
 import GenericPage from '../components/GenericPage';
 import Schedule from '../components/Schedule';
-import StatsTable from '../components/StatsTable';
+import { TeamsTable } from '../components/StatsTable';
 import { GenericContentfulPageInterface } from '../types';
 import { fetchEntry } from '../utils/contentfulPages';
 import scheduleData from '../sheetsData/bearSchedule';
@@ -13,7 +13,7 @@ function BearsChildren() {
       <Heading as="h2" size="md" textAlign="center" m="2rem 1rem">
         Standings
       </Heading>
-      <StatsTable data={statsData} />
+      <TeamsTable data={statsData} />
       <Schedule scheduleData={scheduleData} gameTimes={['7:00', '8:15']} />
     </>
   );

@@ -4,6 +4,11 @@ import { useTable, useBlockLayout, useSortBy } from 'react-table';
 import { useSticky } from 'react-table-sticky';
 
 import { Box } from '@chakra-ui/react';
+import {
+  TeamsStatsInterface,
+  PlayersStatsInterface,
+  GoaliesStatsInterface,
+} from '../types';
 
 const Styles = styled.div`
   /* This is required to make the table full-width */
@@ -17,7 +22,7 @@ const Styles = styled.div`
       min-width: 100%;
       font-weight: bold;
       text-align: center;
-      font-size: 20px;
+      font-size: 18px;
 
       :last-child {
         .td {
@@ -89,68 +94,183 @@ const Styles = styled.div`
   }
 `;
 
-function TeamsTable({ data }) {
-  const columns = useMemo(
-    () => [
-      {
-        Header: 'Team',
-        accessor: 'Teams',
-        sticky: 'left',
-        width: '150',
-        sortDescFirst: true,
-      },
-      {
-        Header: 'GP',
-        accessor: 'Games-Played',
-        width: '50',
-        sortDescFirst: true,
-      },
-      {
-        Header: 'P',
-        accessor: 'Points',
-        width: '50',
-        sortDescFirst: true,
-      },
-      {
-        Header: 'W',
-        accessor: 'Wins',
-        width: '50',
-        sortDescFirst: true,
-      },
-      {
-        Header: 'L',
-        accessor: 'Losses',
-        width: '50',
-        sortDescFirst: true,
-      },
-      {
-        Header: 'D',
-        accessor: 'Draws',
-        width: '50',
-        sortDescFirst: true,
-      },
-      {
-        Header: '+/-',
-        accessor: 'Goal-Difference',
-        width: '50',
-        sortDescFirst: true,
-        sortType: (a, b) => a - b,
-      },
-      {
-        Header: 'GA',
-        accessor: 'Goals-Against',
-        width: '50',
-        sortDescFirst: true,
-      },
-      {
-        Header: 'GF',
-        accessor: 'Goals-For',
-        width: '50',
-        sortDescFirst: true,
-      },
-    ],
-    []
-  );
+const teamsCols = [
+  {
+    Header: 'Team',
+    accessor: 'Teams',
+    sticky: 'left',
+    width: '160',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'GP',
+    accessor: 'Games-Played',
+    width: '50',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'P',
+    accessor: 'Points',
+    width: '50',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'W',
+    accessor: 'Wins',
+    width: '50',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'L',
+    accessor: 'Losses',
+    width: '50',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'D',
+    accessor: 'Draws',
+    width: '50',
+    sortDescFirst: true,
+  },
+  {
+    Header: '+/-',
+    accessor: 'Goal-Difference',
+    width: '50',
+    sortDescFirst: true,
+    sortType: (a, b) => a - b,
+  },
+  {
+    Header: 'GA',
+    accessor: 'Goals-Against',
+    width: '50',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'GF',
+    accessor: 'Goals-For',
+    width: '50',
+    sortDescFirst: true,
+  },
+];
+
+const teamsSort = [
+  { id: 'Points', desc: true },
+  { id: 'Wins', desc: true },
+  { id: 'Goal-Difference', desc: true },
+  { id: 'Goal-For', desc: true },
+];
+
+const playersSort = [
+  { id: 'Total-Points', desc: true },
+  { id: 'Goals', desc: true },
+  { id: 'Assists', desc: true },
+  { id: 'Points-per Game', desc: true },
+];
+
+const playersCols = [
+  {
+    Header: 'Name',
+    accessor: 'Name',
+    width: '165',
+    sortDescFirst: true,
+    sticky: 'left',
+  },
+  {
+    Header: 'Team',
+    accessor: 'Team',
+    width: '100',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'P',
+    accessor: 'Total-Points',
+    width: '50',
+    sortDescFirst: true,
+  },
+
+  {
+    Header: 'G',
+    accessor: 'Goals',
+    width: '50',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'A',
+    accessor: 'Assists',
+    width: '50',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'GP',
+    accessor: 'Games-Played',
+    width: '50',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'PPG',
+    accessor: 'Points-per Game',
+    width: '50',
+    sortDescFirst: true,
+  },
+];
+
+const goaliesCols = [
+  {
+    Header: 'Name',
+    accessor: 'Name',
+    width: '165',
+    sortDescFirst: true,
+    sticky: 'left',
+  },
+  // {
+  //   Header: 'GP',
+  //   accessor: 'Games-Played',
+  //   width: '165',
+  //   sortDescFirst: true,
+  // },
+  {
+    Header: 'Save %',
+    accessor: 'Save-%',
+    width: '165',
+    sortDescFirst: true,
+  },
+  {
+    Header: 'Goals Against',
+    accessor: 'Goals-Against',
+    width: '165',
+    sortDescFirst: false,
+  },
+  {
+    Header: 'Shots Against',
+    accessor: 'Total-Shots',
+    width: '165',
+    sortDescFirst: true,
+  },
+];
+
+const goaliesSort = [
+  { id: 'Save-%', desc: true },
+  { id: 'Goals-Against', desc: false },
+];
+
+interface DataTableProps {
+  data:
+    | Array<TeamsStatsInterface>
+    | Array<PlayersStatsInterface>
+    | Array<GoaliesStatsInterface>;
+  cols: Array<{
+    Header: string;
+    accessor: string;
+    sticky?: string;
+    width: string;
+    sortDescFirst: boolean;
+    sortType?: (x: number, y: number) => number;
+  }>;
+  sortBy: Array<{ id: string; desc: boolean }>;
+}
+
+function DataTable({ data, cols, sortBy }: DataTableProps) {
+  const columns = useMemo(() => cols, [cols]);
 
   const {
     getTableProps,
@@ -164,12 +284,7 @@ function TeamsTable({ data }) {
       data,
       maxMultiSortColCount: 4,
       initialState: {
-        sortBy: [
-          { id: 'Points', desc: true },
-          { id: 'Wins', desc: true },
-          { id: 'Goal-Difference', desc: true },
-          { id: 'Goal-For', desc: true },
-        ],
+        sortBy,
       },
     },
     useBlockLayout,
@@ -218,24 +333,26 @@ function TeamsTable({ data }) {
   );
 }
 
-interface StatsTableProps {
-  data: Array<{
-    Teams: string;
-    Points: string;
-    Wins: string;
-    Losses: string;
-    Draws: string;
-    'Games-Played': string;
-    'Goal-Difference': string;
-    'Goals-Against': string;
-    'Goals-For': string;
-  }>;
+interface PlayersTableProps {
+  data: Array<PlayersStatsInterface>;
 }
 
-export default function StatsTable({ data }: StatsTableProps) {
-  return (
-    <>
-      <TeamsTable data={data} />
-    </>
-  );
+interface TeamsTableProps {
+  data: Array<TeamsStatsInterface>;
+}
+
+interface GoaliesTableProps {
+  data: Array<GoaliesStatsInterface>;
+}
+
+export function TeamsTable({ data }: TeamsTableProps) {
+  return <DataTable data={data} cols={teamsCols} sortBy={teamsSort} />;
+}
+
+export function PlayersTable({ data }: PlayersTableProps) {
+  return <DataTable data={data} cols={playersCols} sortBy={playersSort} />;
+}
+
+export function GoaliesTable({ data }: GoaliesTableProps) {
+  return <DataTable data={data} cols={goaliesCols} sortBy={goaliesSort} />;
 }
