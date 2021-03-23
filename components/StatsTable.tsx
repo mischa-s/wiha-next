@@ -10,7 +10,11 @@ import {
   GoaliesStatsInterface,
 } from '../types';
 
-const Styles = styled.div`
+interface StyleProps {
+  teams: boolean;
+}
+
+const Styles = styled.div<StyleProps>`
   /* This is required to make the table full-width */
   display: block;
   max-width: 100%;
@@ -20,13 +24,20 @@ const Styles = styled.div`
 
     .tr {
       min-width: 100%;
-      font-weight: bold;
-      text-align: center;
-      font-size: 18px;
 
       :last-child {
         .td {
           border-bottom: 0;
+        }
+      }
+      :nth-child(even) {
+        .td {
+          background-color: #fff;
+        }
+      }
+      :nth-child(odd) {
+        .td {
+          background-color: #ddd;
         }
       }
     }
@@ -34,9 +45,15 @@ const Styles = styled.div`
     .td {
       padding: 5px;
       border-bottom: 1px solid #ddd;
-      border-right: 1px solid #ddd;
-      background-color: #fff;
       overflow: hidden;
+      font-weight: ${(props) => (props.teams ? 'bold' : 'normal')};
+      font-size: ${(props) => (props.teams ? '18px' : '14px')};
+      text-align: center;
+
+      :first-of-type {
+        text-align: left;
+        padding-left: 15px;
+      }
 
       :last-child {
         border-right: 0;
@@ -54,6 +71,14 @@ const Styles = styled.div`
       background-color: #323232;
       color: #fff;
       overflow: hidden;
+      font-weight: bold;
+      text-align: center;
+      font-size: 18px;
+
+      :first-of-type {
+        text-align: left;
+        padding-left: 15px;
+      }
 
       :last-child {
         border-right: 0;
@@ -172,14 +197,14 @@ const playersCols = [
   {
     Header: 'Name',
     accessor: 'Name',
-    width: '165',
+    width: '140',
     sortDescFirst: true,
     sticky: 'left',
   },
   {
     Header: 'Team',
     accessor: 'Team',
-    width: '100',
+    width: '90',
     sortDescFirst: true,
   },
   {
@@ -268,9 +293,10 @@ interface DataTableProps {
     sortType?: (x: number, y: number) => number;
   }>;
   sortBy: Array<{ id: string; desc: boolean }>;
+  teams?: boolean;
 }
 
-function DataTable({ data, cols, sortBy }: DataTableProps) {
+function DataTable({ data, cols, sortBy, teams = false }: DataTableProps) {
   const columns = useMemo(() => cols, [cols]);
 
   const {
@@ -295,7 +321,7 @@ function DataTable({ data, cols, sortBy }: DataTableProps) {
 
   return (
     <Box w={[350, 550, 700, 800]}>
-      <Styles>
+      <Styles teams={teams}>
         <div {...getTableProps()} className="table sticky">
           <div className="header">
             <div {...headerGroups[0].getHeaderGroupProps()} className="tr">
@@ -315,11 +341,11 @@ function DataTable({ data, cols, sortBy }: DataTableProps) {
               prepareRow(row);
               return (
                 <div key={row.original} {...row.getRowProps()} className="tr">
-                  {row.cells.map((cell) => (
+                  {row.cells.map((cell, idx) => (
                     <div
                       key={{ ...row.original, ...cell.column }}
                       {...cell.getCellProps()}
-                      className="td s"
+                      className="td"
                     >
                       {cell.render('Cell')}
                     </div>
@@ -347,7 +373,7 @@ interface GoaliesTableProps {
 }
 
 export function TeamsTable({ data }: TeamsTableProps) {
-  return <DataTable data={data} cols={teamsCols} sortBy={teamsSort} />;
+  return <DataTable data={data} cols={teamsCols} sortBy={teamsSort} teams />;
 }
 
 export function PlayersTable({ data }: PlayersTableProps) {

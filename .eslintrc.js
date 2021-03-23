@@ -30,6 +30,7 @@ const config = {
     'consistent-return': 'off',
     'no-console': 'warn',
     'no-nested-ternary': 'off',
+    'react/require-default-props': 'off',
   },
   globals: {
     React: 'writable',
