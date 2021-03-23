@@ -38,7 +38,7 @@ function FoursChildren() {
       </Heading>
       <PlayersTable data={playersData} />
       <Heading
-        id="player-stats"
+        id="goalie-stats"
         as="h2"
         size="md"
         textAlign="center"
