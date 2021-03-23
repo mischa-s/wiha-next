@@ -341,7 +341,7 @@ function DataTable({ data, cols, sortBy, teams = false }: DataTableProps) {
               prepareRow(row);
               return (
                 <div key={row.original} {...row.getRowProps()} className="tr">
-                  {row.cells.map((cell, idx) => (
+                  {row.cells.map((cell) => (
                     <div
                       key={{ ...row.original, ...cell.column }}
                       {...cell.getCellProps()}
