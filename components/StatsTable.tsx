@@ -17,6 +17,7 @@ const Styles = styled.div`
       min-width: 100%;
       font-weight: bold;
       text-align: center;
+      font-size: 20px;
 
       :last-child {
         .td {
@@ -189,9 +190,6 @@ function TeamsTable({ data }) {
                   className="th"
                 >
                   {column.render('Header')}
-                  <span>
-                    {column.isSorted ? (column.isSortedDesc ? ' 🠗' : ' 🠕') : ''}
-                  </span>
                 </div>
               ))}
             </div>

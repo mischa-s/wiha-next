@@ -7,7 +7,7 @@ import {
   Button,
   Heading,
   Flex,
-  Text
+  Text,
 } from '@chakra-ui/react';
 
 import styled from '@emotion/styled';
@@ -72,12 +72,12 @@ export default function Home({ fields, posts }: Props) {
       </Head>
 
       <Hero imageURL={imageURL}>
-        <Flex justify="center" direction="column">
+        <Flex justify="center" direction="row" wrap="wrap" w={[325, 450, 800]}>
           <InternalLink href="/play">
             <Button
-              w={[325, 450, 650]}
+              w={[325, 450, '40%']}
               mx={[0, 0, '2rem']}
-              my={['1rem', '2rem']}
+              my={['1rem', '1rem', '2rem']}
               h={[75, 100]}
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
@@ -89,10 +89,11 @@ export default function Home({ fields, posts }: Props) {
             href="https://wellington-seals.printmighty.co.nz/"
             isExternal
             mx={[0, 0, '2rem']}
-            my={['1rem', '2rem']}
+            my={['1rem', '1rem', '2rem']}
+            w={[325, 450, '40%']}
           >
             <Button
-              w={[325, 450, 650]}
+              w={['100%']}
               h={[75, 100]}
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
@@ -100,16 +101,28 @@ export default function Home({ fields, posts }: Props) {
               Buy Merch
             </Button>
           </ExternalLink>
-          <InternalLink href="/stats">
+          <InternalLink href="/frozen">
             <Button
-              w={[325, 450, 650]}
+              w={[325, 450, '40%']}
               mx={[0, 0, '2rem']}
-              my={['1rem', '2rem']}
+              my={['1rem', '1rem', '2rem']}
               h={[75, 100]}
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
             >
-              Stats and Schedules
+              Frozen Fours
+            </Button>
+          </InternalLink>
+          <InternalLink href="/bear">
+            <Button
+              w={[325, 450, '40%']}
+              mx={[0, 0, '2rem']}
+              my={['1rem', '1rem', '2rem']}
+              h={[75, 100]}
+              fontSize={{ base: '20px', sm: '24px' }}
+              variant="cta"
+            >
+              Bear League
             </Button>
           </InternalLink>
         </Flex>
@@ -120,7 +133,9 @@ export default function Home({ fields, posts }: Props) {
             Wellington ice hockey news
           </Heading>
           <br />
-          <Text textAlign="center">Find the latest info about playing ice hockey in Wellington</Text>
+          <Text textAlign="center">
+            Find the latest info about playing ice hockey in Wellington
+          </Text>
           <br />
           <BlogRoll posts={posts} />
         </Box>
