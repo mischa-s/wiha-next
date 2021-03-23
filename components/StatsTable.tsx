@@ -165,6 +165,7 @@ const playersSort = [
   { id: 'Goals', desc: true },
   { id: 'Assists', desc: true },
   { id: 'Points-per Game', desc: true },
+  { id: 'Games-Played', desc: true },
 ];
 
 const playersCols = [
