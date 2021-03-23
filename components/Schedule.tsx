@@ -40,7 +40,7 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
             ] = row;
 
             const { day, month } = formatDate(gameDate);
-
+            const finals = idx === scheduleData.length - 1;
             return (
               <div key={`${day}-${month}`}>
                 <Wrap
@@ -56,7 +56,11 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                     p="1rem"
                   >
                     <b>
-                      {idx === 0 ? '(Pre-Season): ' : `Game ${idx}: `}
+                      {idx === 0
+                        ? '(Pre-Season): '
+                        : finals
+                        ? 'Finals:'
+                        : `Game ${idx}: `}
                       &nbsp;
                       {month}
                       &nbsp;
@@ -74,9 +78,17 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                       {gameTimes[0]}
                       &nbsp;
                     </b>
-                    {team1score ? `${team1} (${team1score})` : team1}
+                    {team1score
+                      ? `${team1} (${team1score})`
+                      : finals
+                      ? '3rd'
+                      : team1}
                     &nbsp;vs.&nbsp;
-                    {team2score ? `${team2} (${team2score})` : team2}
+                    {team2score
+                      ? `${team2} (${team2score})`
+                      : finals
+                      ? '4th'
+                      : team2}
                   </Text>
                   <Text
                     minW={['350px', '400px']}
@@ -88,9 +100,17 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                       {gameTimes[1]}
                       &nbsp;
                     </b>
-                    {team3score ? `${team3} (${team3score})` : team3}
+                    {team3score
+                      ? `${team3} (${team3score})`
+                      : finals
+                      ? '1st'
+                      : team3}
                     &nbsp;vs.&nbsp;
-                    {team4score ? `${team4} (${team4score})` : team4}
+                    {team4score
+                      ? `${team4} (${team4score})`
+                      : finals
+                      ? '2nd'
+                      : team4}
                   </Text>
                 </Wrap>
               </div>
