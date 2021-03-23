@@ -16,7 +16,6 @@ import goaliesData from '../sheetsData/foursGoalieStats';
 function FoursChildren() {
   return (
     <>
-      <Schedule scheduleData={scheduleData} gameTimes={['6:15', '7:30']} />
       <Heading
         id="team-standings"
         as="h2"
@@ -27,6 +26,7 @@ function FoursChildren() {
         Team Standings
       </Heading>
       <TeamsTable data={teamsData} />
+      <Schedule scheduleData={scheduleData} gameTimes={['6:15', '7:30']} />
       <Heading
         id="player-stats"
         as="h2"

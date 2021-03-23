@@ -165,14 +165,14 @@ const teamsCols = [
     sortType: (a, b) => a - b,
   },
   {
-    Header: 'GA',
-    accessor: 'Goals-Against',
+    Header: 'GF',
+    accessor: 'Goals-For',
     width: '50',
     sortDescFirst: true,
   },
   {
-    Header: 'GF',
-    accessor: 'Goals-For',
+    Header: 'GA',
+    accessor: 'Goals-Against',
     width: '50',
     sortDescFirst: true,
   },
