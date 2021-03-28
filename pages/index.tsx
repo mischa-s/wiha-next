@@ -125,6 +125,18 @@ export default function Home({ fields, posts }: Props) {
               Bear League
             </Button>
           </InternalLink>
+          <InternalLink href="/conduct">
+            <Button
+              w={[325, 450, '40%']}
+              mx={[0, 0, '2rem']}
+              my={['1rem', '1rem', '2rem']}
+              h={[75, 100]}
+              fontSize={{ base: '20px', sm: '24px' }}
+              variant="cta"
+            >
+              Code of Conduct
+            </Button>
+          </InternalLink>
         </Flex>
       </Hero>
       <Flex direction="column" align="center">
