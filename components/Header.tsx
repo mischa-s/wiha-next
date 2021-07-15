@@ -52,7 +52,11 @@ const menuItems: MenuItemType[] = [
     play: [
       {
         link: '/play',
-        label: 'Start Playing',
+        label: 'Overview',
+      },
+      {
+        link: '/beginners',
+        label: 'Beginners',
       },
       {
         link: '/bear',
@@ -231,7 +235,10 @@ function DesktopNav() {
           </MenuButton>
           <MenuList>
             <Link href="/play">
-              <MenuItem>Start Playing</MenuItem>
+              <MenuItem>Overview</MenuItem>
+            </Link>
+            <Link href="/beginners">
+              <MenuItem>Beginners</MenuItem>
             </Link>
             <Link href="/bear">
               <MenuItem>Bear League</MenuItem>

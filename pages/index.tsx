@@ -1,14 +1,7 @@
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import InternalLink from 'next/link';
-import {
-  Link as ExternalLink,
-  Box,
-  Button,
-  Heading,
-  Flex,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Button, Heading, Flex, Text } from '@chakra-ui/react';
 
 import styled from '@emotion/styled';
 
@@ -85,22 +78,18 @@ export default function Home({ fields, posts }: Props) {
               Play Hockey
             </Button>
           </InternalLink>
-          <ExternalLink
-            href="https://wellington-seals.printmighty.co.nz/"
-            isExternal
-            mx={[0, 0, '2rem']}
-            my={['1rem', '1rem', '2rem']}
-            w={[325, 450, '40%']}
-          >
+          <InternalLink href="/youth">
             <Button
-              w={['100%']}
+              w={[325, 450, '40%']}
+              mx={[0, 0, '2rem']}
+              my={['1rem', '1rem', '2rem']}
               h={[75, 100]}
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
             >
-              Buy Merch
+              Youth
             </Button>
-          </ExternalLink>
+          </InternalLink>
           <InternalLink href="/frozen">
             <Button
               w={[325, 450, '40%']}

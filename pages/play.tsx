@@ -42,6 +42,11 @@ export default function Play({ playTable, fields }: PlayProps) {
         </Heading>
         <Text fontSize="lg" my="1rem" w={[350, 550, 700, 800]} px="1rem">
           {description}
+          <br />
+          <br />
+          New to ice hockey? Check out our&nbsp;
+          <InternalLink href="/beginners">beginners page</InternalLink>
+          &nbsp;for all the info to get you on the ice
         </Text>
       </Flex>
       <Flex my="2rem" justify="center">
