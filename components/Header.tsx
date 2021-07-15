@@ -55,12 +55,16 @@ const menuItems: MenuItemType[] = [
         label: 'Start Playing',
       },
       {
+        link: '/bear',
+        label: 'Bear League',
+      },
+      {
         link: '/frozen',
         label: 'Frozen Fours',
       },
       {
-        link: '/bear',
-        label: 'Bear League',
+        link: '/women',
+        label: 'Women',
       },
       {
         link: '/youth',
@@ -229,11 +233,14 @@ function DesktopNav() {
             <Link href="/play">
               <MenuItem>Start Playing</MenuItem>
             </Link>
+            <Link href="/bear">
+              <MenuItem>Bear League</MenuItem>
+            </Link>
             <Link href="/frozen">
               <MenuItem>Frozen Fours</MenuItem>
             </Link>
-            <Link href="/bear">
-              <MenuItem>Bear League</MenuItem>
+            <Link href="/women">
+              <MenuItem>Women</MenuItem>
             </Link>
             <Link href="/youth">
               <MenuItem>Youth</MenuItem>
