@@ -3,10 +3,12 @@ const fs = require('fs');
 const path = require('path');
 
 const googleKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
-const foursSheet = '1oVAQjP83uPltfgeyRLZ9S2EHfgnbGwdSA5qrMYtYNC4';
-const bearSheet = '1jsZI8NV0KhKXbzwys6jdhOZbuLxwP1dm2EhCdTrTq1c';
-const scheduleRange = "'Fixtures%20%2B%20Results'!A3%3AN16";
-const teamStatsRange = "'Summary%20-%20Teams'!A1%3AI5";
+const foursSheet = process.env.NEXT_FOURS_STATS_SHEET;
+const bearSheet = process.env.NEXT_BEARS_STATS_SHEET;
+const bearsScheduleRange = "'Fixtures%20%2B%20Results'!A3%3AN18";
+const bearsTeamStatsRange = "'Summary%20-%20Teams'!A1%3AI6";
+const foursScheduleRange = "'Fixtures%20%2B%20Results'!A3%3AN16";
+const foursTeamStatsRange = "'Summary%20-%20Teams'!A1%3AI5";
 const playerStatsRange = "'Summary%20-%20Players'!B1%3AJ89";
 const goalieStatsRange = "'Summary%20-%20Goalies'!B1%3AI89";
 
@@ -62,8 +64,8 @@ async function saveDataArray(filename, dataArray) {
 
 async function fetchFoursData() {
   const valueRanges = await fetchData(foursSheet, [
-    scheduleRange,
-    teamStatsRange,
+    foursScheduleRange,
+    foursTeamStatsRange,
     playerStatsRange,
     goalieStatsRange,
   ]);
@@ -89,8 +91,8 @@ async function fetchFoursData() {
 
 async function fetchBearData() {
   const valueRanges = await fetchData(bearSheet, [
-    scheduleRange,
-    teamStatsRange,
+    bearsScheduleRange,
+    bearsTeamStatsRange,
   ]);
 
   const scheduleArray = valueRanges[0].values;

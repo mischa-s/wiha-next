@@ -1,20 +1,24 @@
-// import { Heading } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import GenericPage from '../components/GenericPage';
 import Schedule from '../components/Schedule';
-// import { TeamsTable } from '../components/StatsTable';
+import { TeamsTable } from '../components/StatsTable';
 import { GenericContentfulPageInterface } from '../types';
 import { fetchEntry } from '../utils/contentfulPages';
 import scheduleData from '../sheetsData/bearSchedule';
-// import statsData from '../sheetsData/bearTeamStats';
+import statsData from '../sheetsData/bearTeamStats';
 
 function BearsChildren() {
   return (
     <>
-      {/* <Heading as="h2" size="md" textAlign="center" m="2rem 1rem">
+      <Heading as="h2" size="md" textAlign="center" m="2rem 1rem">
         Standings
       </Heading>
-      <TeamsTable data={statsData} /> */}
-      <Schedule scheduleData={scheduleData} gameTimes={['7:00', '8:15']} />
+      <TeamsTable data={statsData} />
+      <Schedule
+        gameRenderer="bears"
+        scheduleData={scheduleData}
+        gameTimes={['7:00', '8:15']}
+      />
     </>
   );
 }

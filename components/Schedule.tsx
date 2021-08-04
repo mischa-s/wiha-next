@@ -1,4 +1,11 @@
 import { Center, Heading, Text, Wrap } from '@chakra-ui/react';
+import FoursGameRenderer from './FoursGameRenderer';
+import BearsGameRenderer from './BearsGameRenderer';
+
+const GameRenderers = {
+  fours: FoursGameRenderer,
+  bears: BearsGameRenderer,
+};
 
 function formatDate(date: string) {
   const splitDate = date.split('-');
@@ -8,9 +15,15 @@ function formatDate(date: string) {
 interface ScheduleProps {
   scheduleData: Array<Array<string>>;
   gameTimes: Array<string>;
+  gameRenderer: string;
 }
 
-export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
+export default function Schedule({
+  scheduleData,
+  gameTimes,
+  gameRenderer,
+}: ScheduleProps) {
+  const GameRenderer = GameRenderers[gameRenderer];
   return (
     <>
       <Heading as="h2" size="md" textAlign="center" m="2rem 1rem">
@@ -23,8 +36,7 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
               gameNumber,
               gameDate,
               ,
-              ,
-              // gamePlayed
+              gamePlayed,
               // roster version
               team1,
               team2,
@@ -33,14 +45,16 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
               ,
               ,
               // game1result
+              // game2result
               team1score,
               team2score,
               team3score,
               team4score,
             ] = row;
 
+            const played = gamePlayed === 'TRUE';
             const { day, month } = formatDate(gameDate);
-            const finals = idx === scheduleData.length - 1;
+
             return (
               <div key={`${day}-${month}`}>
                 <Wrap
@@ -51,21 +65,17 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                 >
                   <Center
                     width="100%"
-                    bg={team1score ? 'blackScale.600' : 'blackScale.700'}
+                    bg={gamePlayed ? 'blackScale.600' : 'blackScale.700'}
                     color="whiteAlpha.900"
                     p="1rem"
                   >
                     <b>
-                      {idx === 0
-                        ? '(Pre-Season): '
-                        : finals
-                        ? 'Finals:'
-                        : `Game ${idx}: `}
-                      &nbsp;
+                      Game&nbsp;
+                      {idx + 1}
+                      :&nbsp;
                       {month}
                       &nbsp;
                       {day}
-                      &nbsp;
                     </b>
                   </Center>
                   <Text
@@ -78,17 +88,14 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                       {gameTimes[0]}
                       &nbsp;
                     </b>
-                    {team1score
-                      ? `${team1} (${team1score})`
-                      : finals
-                      ? '3rd'
-                      : team1}
-                    &nbsp;vs.&nbsp;
-                    {team2score
-                      ? `${team2} (${team2score})`
-                      : finals
-                      ? '4th'
-                      : team2}
+                    <GameRenderer
+                      idx={idx}
+                      team1={team1}
+                      score1={team1score}
+                      played={played}
+                      team2={team2}
+                      score2={team2score}
+                    />
                   </Text>
                   <Text
                     minW={['350px', '400px']}
@@ -100,17 +107,14 @@ export default function Schedule({ scheduleData, gameTimes }: ScheduleProps) {
                       {gameTimes[1]}
                       &nbsp;
                     </b>
-                    {team3score
-                      ? `${team3} (${team3score})`
-                      : finals
-                      ? '1st'
-                      : team3}
-                    &nbsp;vs.&nbsp;
-                    {team4score
-                      ? `${team4} (${team4score})`
-                      : finals
-                      ? '2nd'
-                      : team4}
+                    <GameRenderer
+                      idx={idx}
+                      team1={team3}
+                      score1={team3score}
+                      played={played}
+                      team2={team4}
+                      score2={team4score}
+                    />
                   </Text>
                 </Wrap>
               </div>

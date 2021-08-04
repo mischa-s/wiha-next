@@ -87,5 +87,5 @@ export interface GoaliesStatsInterface {
   'Games-Played': string;
   'Goals-Against': string;
   'Total-Shots': string;
-  'Save-%': string;
+  // 'Save-%': string;
 }
