@@ -16,7 +16,7 @@ import scheduleData from '../sheetsData/foursSchedule';
 function FoursChildren() {
   return (
     <>
-      <Heading
+      {/* <Heading
         id="team-standings"
         as="h2"
         size="md"
@@ -24,14 +24,14 @@ function FoursChildren() {
         m="2rem 1rem"
       >
         Team Standings
-      </Heading>
+      </Heading> */}
       {/* <TeamsTable data={teamsData} /> */}
       <Schedule
         gameRenderer="fours"
         scheduleData={scheduleData}
         gameTimes={['6:15', '7:30']}
       />
-      <Heading
+      {/* <Heading
         id="player-stats"
         as="h2"
         size="md"
@@ -39,9 +39,9 @@ function FoursChildren() {
         m="2rem 1rem"
       >
         Player Stats
-      </Heading>
+      </Heading> */}
       {/* <PlayersTable data={playersData} /> */}
-      <Heading
+      {/* <Heading
         id="goalie-stats"
         as="h2"
         size="md"
@@ -49,7 +49,7 @@ function FoursChildren() {
         m="2rem 1rem"
       >
         Goalie Stats
-      </Heading>
+      </Heading> */}
       {/* <GoaliesTable data={goaliesData} /> */}
     </>
   );
