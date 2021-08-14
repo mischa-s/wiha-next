@@ -1,17 +1,17 @@
 import { Heading } from '@chakra-ui/react';
 import GenericPage from '../components/GenericPage';
 import Schedule from '../components/Schedule';
-import {
-  TeamsTable,
-  PlayersTable,
-  GoaliesTable,
-} from '../components/StatsTable';
+// import {
+//   TeamsTable,
+//   PlayersTable,
+//   GoaliesTable,
+// } from '../components/StatsTable';
 import { GenericContentfulPageInterface } from '../types';
 import { fetchEntry } from '../utils/contentfulPages';
 import scheduleData from '../sheetsData/foursSchedule';
-import teamsData from '../sheetsData/foursTeamStats';
-import playersData from '../sheetsData/foursPlayerStats';
-import goaliesData from '../sheetsData/foursGoalieStats';
+// import teamsData from '../sheetsData/foursTeamStats';
+// import playersData from '../sheetsData/foursPlayerStats';
+// import goaliesData from '../sheetsData/foursGoalieStats';
 
 function FoursChildren() {
   return (
@@ -25,7 +25,7 @@ function FoursChildren() {
       >
         Team Standings
       </Heading>
-      <TeamsTable data={teamsData} />
+      {/* <TeamsTable data={teamsData} /> */}
       <Schedule
         gameRenderer="fours"
         scheduleData={scheduleData}
@@ -40,7 +40,7 @@ function FoursChildren() {
       >
         Player Stats
       </Heading>
-      <PlayersTable data={playersData} />
+      {/* <PlayersTable data={playersData} /> */}
       <Heading
         id="goalie-stats"
         as="h2"
@@ -50,7 +50,7 @@ function FoursChildren() {
       >
         Goalie Stats
       </Heading>
-      <GoaliesTable data={goaliesData} />
+      {/* <GoaliesTable data={goaliesData} /> */}
     </>
   );
 }
