@@ -1,4 +1,4 @@
-import { Heading } from '@chakra-ui/react';
+// import { Heading } from '@chakra-ui/react';
 import GenericPage from '../components/GenericPage';
 import Schedule from '../components/Schedule';
 // import {
