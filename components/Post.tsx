@@ -1,21 +1,19 @@
-import { Text, Image } from '@chakra-ui/react';
+import { Image, Text } from '@chakra-ui/react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import { PostInterface } from '../types';
 
 type PostProps = {
-  // eslint-disable-next-line react/require-default-props
-  truncate?: boolean;
   post: PostInterface;
 };
 
-export default function Post({ post, truncate = true }: PostProps) {
+export default function Post({ post }: PostProps) {
   const { heroImage, body, title } = post;
   const imageURL = heroImage?.fields?.file?.url;
 
   return (
     <>
-      {!truncate && imageURL && (
+      {imageURL && (
         <div>
           <Image
             mb="2rem"
@@ -26,14 +24,7 @@ export default function Post({ post, truncate = true }: PostProps) {
           />
         </div>
       )}
-
-      {truncate ? (
-        <Text isTruncated noOfLines={4}>
-          {documentToReactComponents(body)}
-        </Text>
-      ) : (
-        documentToReactComponents(body)
-      )}
+      <Text as="div">{documentToReactComponents(body)}</Text>
     </>
   );
 }

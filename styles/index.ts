@@ -151,14 +151,15 @@ const Menu = {
 };
 
 const fonts = {
-  body: 'Ubuntu, system-ui, sans-serif',
-  heading: 'Ubuntu, serif',
+  body:
+    "SourceSansPro, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+  heading:
+    "SourceSansPro, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
   mono: 'Menlo, monospace',
 };
 
 const Link = {
   baseStyle: {
-    fontWeight: 'bold',
     textDecoration: 'underline',
   },
 };
@@ -172,9 +173,37 @@ const overrides = {
       p: {
         whiteSpace: 'pre-wrap',
       },
-
+      h1: {
+        fontSize: '3xl',
+        marginTop: '1rem',
+        marginBottom: '1rem',
+      },
+      h2: {
+        fontSize: '2xl',
+        marginTop: '1rem',
+        marginBottom: '1rem',
+      },
+      h3: {
+        fontSize: 'xl',
+        marginTop: '1rem',
+        marginBottom: '1rem',
+      },
+      h4: {
+        fontSize: 'lg',
+        marginTop: '1rem',
+        marginBottom: '1rem',
+      },
+      h5: {
+        fontSize: 'md',
+        marginTop: '1rem',
+        marginBottom: '1rem',
+      },
+      h6: {
+        fontSize: 'sm',
+        marginTop: '1rem',
+        marginBottom: '1rem',
+      },
       a: {
-        fontWeight: 'bold',
         textDecoration: 'underline',
         _hover: {
           color: 'rgba(0, 0, 0, 0.70)',

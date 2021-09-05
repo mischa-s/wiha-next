@@ -62,19 +62,13 @@ export default function PostPage({ post, morePosts }: Props) {
         <Heading as="h1" size="lg" textAlign="center" my={2}>
           {post.title}
         </Heading>
-        <Text
-          textAlign="center"
-          fontSize="lg"
-          my="1rem"
-          w={[350, 550, 700, 800]}
-          px="1rem"
-        >
+        <Text fontSize="lg" my="1rem" w={[350, 550, 700, 800]} px="1rem">
           {post.description}
         </Text>
       </Flex>
       <Flex direction="column" align="center">
         <Box mt="3rem" px="1.5rem" w={[350, 550, 700, 800]}>
-          <Post post={post} truncate={false} />
+          <Post post={post} />
           <Heading as="h2" size="md" textAlign="center" mt="3rem">
             Other Recent News
           </Heading>

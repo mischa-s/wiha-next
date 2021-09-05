@@ -38,7 +38,7 @@ export default function Layout({ children }: LayoutProps) {
         />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Ubuntu:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=SourceSansPro:wght@400;700&display=swap"
           rel="stylesheet"
         />
         <meta name="msapplication-TileColor" content="#ffc40d" />

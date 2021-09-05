@@ -5,7 +5,7 @@ import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import Layout from '../components/Layout';
 import { GenericContentfulPageInterface } from '../types';
 
-export default function StatsPage({
+export default function GenericPage({
   fields,
   children,
 }: GenericContentfulPageInterface) {
@@ -33,7 +33,7 @@ export default function StatsPage({
       </Head>
 
       <Flex direction="column" align="center" bg="blackAlpha.200" py="2rem">
-        <Heading as="h1" size="lg" textAlign="center" my={2}>
+        <Heading as="h1" my={2}>
           {title}
         </Heading>
         <Text fontSize="lg" my="1rem" w={[350, 550, 700, 800]} px="1rem">
@@ -44,7 +44,7 @@ export default function StatsPage({
       <Flex direction="column" align="center" py="2rem">
         {children}
 
-        <Heading as="h2" size="md" textAlign="center" m="2rem 1rem 0">
+        <Heading as="h2" fontSize="2xl" m="2rem 1rem 0">
           {subtitle1}
         </Heading>
 
@@ -69,7 +69,7 @@ export default function StatsPage({
           );
         })}
 
-        <Heading as="h2" size="md" textAlign="center" m="2rem 1rem 0">
+        <Heading as="h2" fontSize="2xl" textAlign="center" m="2rem 1rem 0">
           {documentToReactComponents(subtitle2)}
         </Heading>
 

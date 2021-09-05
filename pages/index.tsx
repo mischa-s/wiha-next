@@ -122,7 +122,7 @@ export default function Home({ fields, posts }: Props) {
             Wellington ice hockey news
           </Heading>
           <br />
-          <Text textAlign="center">
+          <Text fontSize="xl" textAlign="center">
             Find the latest info about playing ice hockey in Wellington
           </Text>
           <br />

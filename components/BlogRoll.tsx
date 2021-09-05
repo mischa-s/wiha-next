@@ -1,7 +1,6 @@
 import { Heading, Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
-import Post from '../components/Post';
 import { PostInterface } from '../types';
 
 interface BlogRollProps {
@@ -10,7 +9,7 @@ interface BlogRollProps {
 
 export default function BlogRoll({ posts }: BlogRollProps) {
   return (
-    <Flex align="center" direction="column" mb="2rem">
+    <Flex direction="column" mb="2rem">
       {posts &&
         posts.map((post) => {
           // console.log(heroImage);
@@ -26,9 +25,10 @@ export default function BlogRoll({ posts }: BlogRollProps) {
                   </Text>
                 </Link>
               </Heading>
-              <p>{description}</p>
+              <Text isTruncated noOfLines={4}>
+                {description}
+              </Text>
 
-              <Post post={post} />
               <Text mt="1rem" mb="2rem">
                 <Link href={`/news/${slug}`}>Keep Reading →</Link>
               </Text>
