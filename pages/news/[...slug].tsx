@@ -69,7 +69,7 @@ export default function PostPage({ post, morePosts }: Props) {
       <Flex direction="column" align="center">
         <Box mt="3rem" px="1.5rem" w={[350, 550, 700, 800]}>
           <Post post={post} />
-          <Heading as="h2" size="md" textAlign="center" mt="3rem">
+          <Heading as="h2" size="lg" textAlign="center" mt="3rem">
             Other Recent News
           </Heading>
           <BlogRoll posts={morePosts} />
