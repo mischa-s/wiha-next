@@ -91,6 +91,10 @@ const menuItems: MenuItemType[] = [
         label: 'Equpiment',
       },
       {
+        link: 'policies_and_procedures',
+        label: 'Policies and Procedures',
+      },
+      {
         link: '/code_of_conduct',
         label: 'Code of conduct',
       },
@@ -268,6 +272,9 @@ function DesktopNav() {
             </Link>
             <Link href="/equipment">
               <MenuItem>Equipment</MenuItem>
+            </Link>
+            <Link href="/rules_and_regulations">
+              <MenuItem>Rules and Regulations</MenuItem>
             </Link>
             <Link href="/code_of_conduct">
               <MenuItem>Code of conduct</MenuItem>
