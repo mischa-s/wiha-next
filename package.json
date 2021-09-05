@@ -7,6 +7,7 @@
     "build": "npm run fetch-spreadsheet-data && next build",
     "start": "next start",
     "lint": "eslint --ext .jsx,.js,.tsx,.ts  .",
+    "lint-fix": "eslint --ext .jsx,.js,.tsx,.ts  . --fix",
     "fetch-spreadsheet-data": "node -r dotenv/config bin/fetchGoogleData.js"
   },
   "dependencies": {
@@ -16,7 +17,6 @@
     "@contentful/rich-text-types": "^14.1.2",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
-    "@netlify/plugin-nextjs": "^3.7.1",
     "axios": "^0.21.1",
     "contentful": "^8.1.7",
     "date-fns": "^2.16.1",
