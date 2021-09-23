@@ -1,22 +1,22 @@
-// import { Heading } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import GenericPage from '../components/GenericPage';
 import Schedule from '../components/Schedule';
-// import {
-//   TeamsTable,
-//   PlayersTable,
-//   GoaliesTable,
-// } from '../components/StatsTable';
+import {
+  TeamsTable,
+  PlayersTable,
+  GoaliesTable,
+} from '../components/StatsTable';
 import { GenericContentfulPageInterface } from '../types';
 import { fetchEntry } from '../utils/contentfulPages';
 import scheduleData from '../sheetsData/foursSchedule';
-// import teamsData from '../sheetsData/foursTeamStats';
-// import playersData from '../sheetsData/foursPlayerStats';
-// import goaliesData from '../sheetsData/foursGoalieStats';
+import teamsData from '../sheetsData/foursTeamStats';
+import playersData from '../sheetsData/foursPlayerStats';
+import goaliesData from '../sheetsData/foursGoalieStats';
 
 function FoursChildren() {
   return (
     <>
-      {/* <Heading
+      <Heading
         id="team-standings"
         as="h2"
         size="md"
@@ -24,14 +24,14 @@ function FoursChildren() {
         m="2rem 1rem"
       >
         Team Standings
-      </Heading> */}
-      {/* <TeamsTable data={teamsData} /> */}
+      </Heading>
+      <TeamsTable data={teamsData} />
       <Schedule
         gameRenderer="fours"
         scheduleData={scheduleData}
         gameTimes={['6:15', '7:30']}
       />
-      {/* <Heading
+      <Heading
         id="player-stats"
         as="h2"
         size="md"
@@ -39,9 +39,9 @@ function FoursChildren() {
         m="2rem 1rem"
       >
         Player Stats
-      </Heading> */}
-      {/* <PlayersTable data={playersData} /> */}
-      {/* <Heading
+      </Heading>
+      <PlayersTable data={playersData} />
+      <Heading
         id="goalie-stats"
         as="h2"
         size="md"
@@ -49,8 +49,8 @@ function FoursChildren() {
         m="2rem 1rem"
       >
         Goalie Stats
-      </Heading> */}
-      {/* <GoaliesTable data={goaliesData} /> */}
+      </Heading>
+      <GoaliesTable data={goaliesData} />
     </>
   );
 }

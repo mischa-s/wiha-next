@@ -35,8 +35,8 @@ export default function Schedule({
             const [
               gameNumber,
               gameDate,
-              ,
               gamePlayed,
+              ,
               // roster version
               team1,
               team2,
@@ -65,7 +65,7 @@ export default function Schedule({
                 >
                   <Center
                     width="100%"
-                    bg={gamePlayed ? 'blackScale.600' : 'blackScale.700'}
+                    bg={played ? 'blackScale.700' : 'blackScale.600'}
                     color="whiteAlpha.900"
                     p="1rem"
                   >

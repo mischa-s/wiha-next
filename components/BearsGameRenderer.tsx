@@ -15,7 +15,7 @@ export default function BearsGameRenderer({
   score2,
   idx,
 }: BearsGameProps) {
-  if (idx === 15) {
+  if (idx === 10) {
     return <>Finals</>;
   }
 

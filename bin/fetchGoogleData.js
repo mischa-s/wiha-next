@@ -13,8 +13,9 @@ const playerStatsRange = "'Summary%20-%20Players'!B1%3AJ89";
 const goalieStatsRange = "'Summary%20-%20Goalies'!B1%3AI89";
 
 function prepareJSON(values) {
-  const json = JSON.stringify(values);
-  return json.replace(/Ice Bunny Brawlers/g, 'Ice Bunnies');
+  let json = JSON.stringify(values);
+  json = json.replace(/Ice Bunny Brawlers/g, 'Ice Bunnies');
+  return json.replace(/Rubber Duckies/g, 'Rubber Duckes');
 }
 
 function buildObj(valuesArray) {
