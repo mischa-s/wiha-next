@@ -68,14 +68,14 @@ export interface TeamsStatsInterface {
 }
 
 export interface PlayersStatsInterface {
-  Name: string;
-  League: string;
-  Team: string;
-  Position: string;
-  'Games-Played': string;
-  Goals: string;
-  Assists: string;
-  'Total-Points': string;
+  Name?: string;
+  League?: string;
+  Team?: string;
+  Position?: string;
+  'Games-Played'?: string;
+  Goals?: string;
+  Assists?: string;
+  'Total-Points'?: string;
   'Points-per Game'?: string;
 }
 
