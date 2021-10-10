@@ -182,7 +182,8 @@ const teamsSort = [
   { id: 'Points', desc: true },
   { id: 'Wins', desc: true },
   { id: 'Goal-Difference', desc: true },
-  { id: 'Goal-For', desc: true },
+  { id: 'Goals-For', desc: true },
+  { id: 'Goal-Difference', desc: true },
 ];
 
 const playersSort = [
