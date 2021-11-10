@@ -15,7 +15,7 @@ class CustomDocument extends Document {
   render() {
     const GA_TRACKING_ID = process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID;
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <script
             async
