@@ -165,6 +165,8 @@ const Link = {
 };
 
 const overrides = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
   styles: {
     global: {
       body: {

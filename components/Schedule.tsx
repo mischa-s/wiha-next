@@ -80,7 +80,7 @@ export default function Schedule({
                   </Center>
                   <Text
                     minW={['350px', '400px']}
-                    width={['100%', '100%', 1 / 2]}
+                    width={['100%', '100%']}
                     bg="blackScale.50"
                     p="1rem 1.5rem"
                   >
@@ -99,7 +99,7 @@ export default function Schedule({
                   </Text>
                   <Text
                     minW={['350px', '400px']}
-                    width={['100%', '100%', 1 / 2]}
+                    width={['100%', '100%']}
                     bg="blackScale.50"
                     p="1rem 1.5rem"
                   >
