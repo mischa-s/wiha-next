@@ -15,10 +15,6 @@ export default function FoursGameRenderer({
   score2,
   idx,
 }: FoursGameProps) {
-  if (idx === 12) {
-    return <>Semifinals</>;
-  }
-
   if (idx === 13) {
     return <>Finals</>;
   }
