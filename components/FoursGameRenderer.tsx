@@ -4,7 +4,6 @@ interface FoursGameProps {
   score1: string;
   team2: string;
   score2: string;
-  idx: number;
 }
 
 export default function FoursGameRenderer({
