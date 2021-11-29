@@ -15,10 +15,6 @@ export default function FoursGameRenderer({
   score2,
   idx,
 }: FoursGameProps) {
-  if (idx === 13) {
-    return <>Finals</>;
-  }
-
   return (
     <>
       {played && score1 ? `${team1} (${score1})` : team1}
