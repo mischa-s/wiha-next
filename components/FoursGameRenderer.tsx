@@ -13,7 +13,6 @@ export default function FoursGameRenderer({
   score1,
   team2,
   score2,
-  idx,
 }: FoursGameProps) {
   return (
     <>
