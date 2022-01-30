@@ -67,7 +67,7 @@ export default function Play({ playTable, fields }: PlayProps) {
             </Button>
           </InternalLink>
           <ExternalLink
-            href="https://docs.google.com/forms/u/1/d/1Jni35B2Fw-tmMq6E4vUP-nNulPpkJk3AI1iU3fntJcM/"
+            href="https://admin.esportsdesk.com/leagues/eventsv2.cfm?clientid=6894&leagueid=33199"
             isExternal
           >
             <Button
