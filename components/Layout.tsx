@@ -46,7 +46,7 @@ export default function Layout({ children }: LayoutProps) {
         <meta name="theme-color" content="#ffffff" />
         <meta
           property="og:url"
-          content={`https://wiha.nz/${router.pathname}`}
+          content={`https://wiha.nz/${router.asPath}`}
           key="ogurl"
         />
         <meta
