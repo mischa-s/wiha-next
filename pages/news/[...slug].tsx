@@ -54,7 +54,7 @@ export default function PostPage({ post, morePosts }: Props) {
     return null;
   }
   return (
-    <Layout>
+    <Layout description={post.title}>
       <Head>
         <title>{post.title}</title>
       </Head>

@@ -6,11 +6,16 @@ import Banner from '../components/Banner';
 
 type LayoutProps = {
   children: React.ReactNode;
+  description?: string;
 };
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, description }: LayoutProps) {
   const router = useRouter();
 
+  const defaultDescription =
+    'New player? Retuning player? Casual player? Wellington ice hockey association has leagues and trainings for everyone!';
+
+  const socialDescription = description ?? defaultDescription;
   return (
     <div>
       <Head>
@@ -62,7 +67,7 @@ export default function Layout({ children }: LayoutProps) {
         />
         <meta
           property="og:description"
-          content="New player? Retuning player? Casual player? Wellington ice hockey association has leagues and trainings for everyone!"
+          content={socialDescription}
           key="ogdesc"
         />
         <meta
@@ -72,7 +77,7 @@ export default function Layout({ children }: LayoutProps) {
         />
         <meta
           name="description"
-          content="New player? Retuning player? Casual player? Wellington ice hockey association has leagues and trainings for everyone!"
+          content={socialDescription}
           key="description"
         />
         <title>Wellington Ice Hockey Association</title>
