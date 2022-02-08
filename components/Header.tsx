@@ -59,20 +59,28 @@ const menuItems: MenuItemType[] = [
         label: 'Beginners',
       },
       {
-        link: '/bear',
-        label: 'Bear League',
-      },
-      {
-        link: '/frozen',
-        label: 'Frozen Fours',
-      },
-      {
         link: '/women',
         label: 'Women',
       },
       {
         link: '/youth',
         label: 'Youth',
+      },
+      {
+        link: '/grade-a',
+        label: 'Grade A',
+      },
+      {
+        link: '/grade-b',
+        label: 'Grade B',
+      },
+      {
+        link: '/grade-c',
+        label: 'Grade C',
+      },
+      {
+        link: '/scrimmage',
+        label: 'Scrimmage',
       },
     ],
   },
@@ -244,18 +252,25 @@ function DesktopNav() {
             <Link href="/beginners">
               <MenuItem>Beginners</MenuItem>
             </Link>
-            <Link href="/bear">
-              <MenuItem>Bear League</MenuItem>
-            </Link>
-            <Link href="/frozen">
-              <MenuItem>Frozen Fours</MenuItem>
-            </Link>
             <Link href="/women">
               <MenuItem>Women</MenuItem>
             </Link>
             <Link href="/youth">
               <MenuItem>Youth</MenuItem>
             </Link>
+            <Link href="/grade-a">
+              <MenuItem>Grade A</MenuItem>
+            </Link>
+            <Link href="/grade-b">
+              <MenuItem>Grade B</MenuItem>
+            </Link>
+            <Link href="/grade-c">
+              <MenuItem>Grade C</MenuItem>
+            </Link>
+            <Link href="/scrimmage">
+              <MenuItem>Scrimmage</MenuItem>
+            </Link>
+
           </MenuList>
         </Menu>
         <Menu>

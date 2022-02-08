@@ -90,7 +90,7 @@ export default function Home({ fields, posts }: Props) {
               Youth
             </Button>
           </InternalLink>
-          <InternalLink href="/frozen">
+          <InternalLink href="/adult_training">
             <Button
               w={[325, 450, '40%']}
               mx={[0, 0, '2rem']}
@@ -99,10 +99,10 @@ export default function Home({ fields, posts }: Props) {
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
             >
-              Frozen Fours
+              Adult Training
             </Button>
           </InternalLink>
-          <InternalLink href="/bear">
+          <InternalLink href="/scrimmage">
             <Button
               w={[325, 450, '40%']}
               mx={[0, 0, '2rem']}
@@ -111,7 +111,7 @@ export default function Home({ fields, posts }: Props) {
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
             >
-              Bear League
+              Scrimmage
             </Button>
           </InternalLink>
         </Flex>
