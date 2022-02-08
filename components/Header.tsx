@@ -270,7 +270,6 @@ function DesktopNav() {
             <Link href="/scrimmage">
               <MenuItem>Scrimmage</MenuItem>
             </Link>
-
           </MenuList>
         </Menu>
         <Menu>
