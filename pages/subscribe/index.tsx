@@ -69,8 +69,11 @@ export default function Index() {
           Wellington!
           <br />
           <br />
-          By filling in your details below, you agree to be sent occasional
-          updates by email about the most exciting sport in the capital!
+          By filling in your details, you agree to be emailed occasional updates
+          about the most exciting sport in the capital! We will never share your
+          information with anybody else without your explicit permission as we
+          are here to play and grow hockey, and anybody else who has your email
+          is probably trying to distract you from playing hockey
         </Text>
       </Flex>
       <ContentWrapper>
