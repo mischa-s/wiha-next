@@ -15,18 +15,6 @@ export default function PlayTable({ playTable }: PlayTableProps) {
           return (
             <Tr key={row.title}>
               <Td>
-                <Link href={row.link}>
-                  <Button w="130px" mb="1" size="md" variant="secondary">
-                    {row.title}
-                  </Button>
-                </Link>
-              </Td>
-              <Td>
-                <Text fontSize="lg" lineHeight="base">
-                  {row.description}
-                </Text>
-              </Td>
-              <Td>
                 <Text
                   fontSize="lg"
                   my="1rem"
@@ -37,6 +25,18 @@ export default function PlayTable({ playTable }: PlayTableProps) {
                   <br />
                   {row.time}
                 </Text>
+              </Td>
+              <Td>
+                <Text fontSize="lg" lineHeight="base">
+                  {row.description}
+                </Text>
+              </Td>
+              <Td>
+                <Link href={row.link}>
+                  <Button w="130px" mb="1" size="md" variant="secondary">
+                    {row.title}
+                  </Button>
+                </Link>
               </Td>
             </Tr>
           );
