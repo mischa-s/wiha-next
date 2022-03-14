@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Banner from '../components/Banner';
+// import Banner from '../components/Banner';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -83,7 +83,7 @@ export default function Layout({ children, description }: LayoutProps) {
         <title>Wellington Ice Hockey Association</title>
       </Head>
       <Header />
-      <Banner />
+      {/* <Banner /> */}
       <main>{children}</main>
       <Footer />
     </div>
