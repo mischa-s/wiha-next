@@ -1,13 +1,6 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled from '@emotion/styled';
-import {
-  Box,
-  Heading,
-  Flex,
-  Text,
-  AspectRatio,
-  Spacer,
-} from '@chakra-ui/react';
+import { Box, Heading, Flex, Text, AspectRatio } from '@chakra-ui/react';
 import { fetchEntry } from '../../utils/contentfulPages';
 import { GenericContentfulPageInterface } from '../../types';
 import FreeTrialForm from '../../components/ltp/FreeTrialForm';
