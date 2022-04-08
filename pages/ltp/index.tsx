@@ -51,7 +51,7 @@ export default function Index({ fields }: GenericContentfulPageInterface) {
         <Box w={[350, 550, 700, 800]} pb="1rem">
           {documentToReactComponents(contentBlock1)}
         </Box>
-        <Box pe="2rem">
+        <Box>
           <AspectRatio h={[200, 300, 400]} ratio={4 / 3}>
             <iframe
               title="Learn to play video on youtube"
