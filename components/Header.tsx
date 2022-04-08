@@ -35,6 +35,7 @@ interface MobileNavItemInterface {
 interface MobileAccordionItemsInterface {
   play?: MobileNavItemInterface[];
   about?: MobileNavItemInterface[];
+  'Learn to Play'?: MobileNavItemInterface[];
 }
 
 type MenuItemType = MobileNavItemInterface | MobileAccordionItemsInterface;
@@ -47,6 +48,50 @@ const menuItems: MenuItemType[] = [
   {
     link: '/news',
     label: 'News',
+  },
+  {
+    'Learn to Play': [
+      {
+        link: '/ltp',
+        label: 'Free Trial',
+      },
+      {
+        link: '/learn_to_play/calendar_and_costs',
+        label: 'Calendar and Costs',
+      },
+      {
+        link: '/learn_to_play/gear',
+        label: 'Gear Hire',
+      },
+    ],
+  },
+  {
+    about: [
+      {
+        link: '/about',
+        label: 'WIHA',
+      },
+      {
+        link: '/seals',
+        label: 'Seals',
+      },
+      {
+        link: '/equipment',
+        label: 'Equpiment',
+      },
+      {
+        link: '/code_of_conduct',
+        label: 'Code of conduct',
+      },
+      {
+        link: '/rules_and_regulations',
+        label: 'Rules and regulations',
+      },
+      {
+        link: '/subscribe',
+        label: 'Subscribe',
+      },
+    ],
   },
   {
     play: [
@@ -84,34 +129,6 @@ const menuItems: MenuItemType[] = [
       },
     ],
   },
-  {
-    about: [
-      {
-        link: '/about',
-        label: 'WIHA',
-      },
-      {
-        link: '/seals',
-        label: 'Seals',
-      },
-      {
-        link: '/equipment',
-        label: 'Equpiment',
-      },
-      {
-        link: '/code_of_conduct',
-        label: 'Code of conduct',
-      },
-      {
-        link: '/rules_and_regulations',
-        label: 'Rules and regulations',
-      },
-      {
-        link: '/subscribe',
-        label: 'Subscribe',
-      },
-    ],
-  },
 ];
 
 const NavbarWrapper = styled.div`
@@ -140,14 +157,14 @@ const NavItems = styled.div`
 `;
 
 const MobileNavWrapper = styled.div`
-  @media (min-width: 48em) {
+  @media (min-width: 52em) {
     display: none;
   }
 `;
 
 const DesktopNavWrapper = styled.div`
   display: none;
-  @media (min-width: 48em) {
+  @media (min-width: 52em) {
     display: initial;
   }
 `;
@@ -299,6 +316,23 @@ function DesktopNav() {
             </Link>
             <Link href="/subscribe">
               <MenuItem>Subscribe</MenuItem>
+            </Link>
+          </MenuList>
+        </Menu>
+        <Menu>
+          <MenuButton size="lg" as={Button} variant="navButton">
+            Learn to Play
+            <ChevronDownIcon />
+          </MenuButton>
+          <MenuList>
+            <Link href="/ltp">
+              <MenuItem>Free Trial</MenuItem>
+            </Link>
+            <Link href="/learn_to_play/calendar_and_costs">
+              <MenuItem>Calendar and Cost</MenuItem>
+            </Link>
+            <Link href="/learn_to_play/gear">
+              <MenuItem>Gear Hire</MenuItem>
             </Link>
           </MenuList>
         </Menu>

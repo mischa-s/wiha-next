@@ -30,6 +30,7 @@ export interface GenericContentfulPageInterface {
     ogDescript?: string;
     title: string;
     description: string;
+    videoLink: string;
     subtitle1: Document;
     contentBlock1: Document;
     subtitle2: Document;
@@ -88,4 +89,9 @@ export interface GoaliesStatsInterface {
   'Goals-Against': string;
   'Total-Shots': string;
   // 'Save-%': string;
+}
+
+export interface LTPTabInterface {
+  label: string;
+  href: string;
 }
