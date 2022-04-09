@@ -97,25 +97,27 @@ export default function Schedule({
                       score2={team2score}
                     />
                   </Text>
-                  <Text
-                    minW={['350px', '400px']}
-                    width={['100%', '100%']}
-                    bg="blackScale.50"
-                    p="1rem 1.5rem"
-                  >
-                    <b>
-                      {gameTimes[1]}
-                      &nbsp;
-                    </b>
-                    <GameRenderer
-                      idx={idx}
-                      team1={team3}
-                      score1={team3score}
-                      played={played}
-                      team2={team4}
-                      score2={team4score}
-                    />
-                  </Text>
+                  {team3 && (
+                    <Text
+                      minW={['350px', '400px']}
+                      width={['100%', '100%']}
+                      bg="blackScale.50"
+                      p="1rem 1.5rem"
+                    >
+                      <b>
+                        {gameTimes[1]}
+                        &nbsp;
+                      </b>
+                      <GameRenderer
+                        idx={idx}
+                        team1={team3}
+                        score1={team3score}
+                        played={played}
+                        team2={team4}
+                        score2={team4score}
+                      />
+                    </Text>
+                  )}
                 </Wrap>
               </div>
             );

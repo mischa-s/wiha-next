@@ -3,12 +3,11 @@ const fs = require('fs');
 const path = require('path');
 
 const googleKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
-const foursSheet = process.env.NEXT_FOURS_STATS_SHEET;
-const bearSheet = process.env.NEXT_BEARS_STATS_SHEET;
-const bearsScheduleRange = "'Fixtures%20%2B%20Results'!A3%3AN18";
-const bearsTeamStatsRange = "'Summary%20-%20Teams'!A1%3AI6";
-const foursScheduleRange = "'Fixtures%20%2B%20Results'!A3%3AN16";
-const foursTeamStatsRange = "'Summary%20-%20Teams'!A1%3AI5";
+const grade1Sheet = process.env.NEXT_GRADE_1_STATS_SHEET;
+const grade2Sheet = process.env.NEXT_GRADE_2_STATS_SHEET;
+const grade3Sheet = process.env.NEXT_GRADE_3_STATS_SHEET;
+const scheduleRange = "'Fixtures%20%2B%20Results'!A3%3AN16";
+const statsRange = `'Summary%20-%20Teams'!A1%3AI5`;
 const playerStatsRange = "'Summary%20-%20Players'!B1%3AJ89";
 const goalieStatsRange = "'Summary%20-%20Goalies'!B1%3AI89";
 
@@ -63,10 +62,10 @@ async function saveDataArray(filename, dataArray) {
   }
 }
 
-async function fetchFoursData() {
-  const valueRanges = await fetchData(foursSheet, [
-    foursScheduleRange,
-    foursTeamStatsRange,
+async function fetchGrade1Data() {
+  const valueRanges = await fetchData(grade1Sheet, [
+    scheduleRange,
+    statsRange,
     playerStatsRange,
     goalieStatsRange,
   ]);
@@ -84,25 +83,33 @@ async function fetchFoursData() {
   );
   const foursGoaliesArray = buildObj([goaliessHeaders, ...foursGoalies]);
 
-  saveDataArray('foursSchedule', scheduleArray);
-  saveDataArray('foursTeamStats', teamsArray);
+  saveDataArray('grade1Schedule', scheduleArray);
+  saveDataArray('grade1Stats', teamsArray);
   saveDataArray('foursPlayerStats', foursPlayersArray);
   saveDataArray('foursGoalieStats', foursGoaliesArray);
 }
 
-async function fetchBearData() {
-  const valueRanges = await fetchData(bearSheet, [
-    bearsScheduleRange,
-    bearsTeamStatsRange,
-  ]);
+async function fetchGrade2Data() {
+  const valueRanges = await fetchData(grade2Sheet, [scheduleRange, statsRange]);
 
   const scheduleArray = valueRanges[0].values;
   const teamsArray = buildObj(valueRanges[1].values);
 
-  saveDataArray('bearSchedule', scheduleArray);
-  saveDataArray('bearTeamStats', teamsArray);
+  saveDataArray('grade2Schedule', scheduleArray);
+  saveDataArray('grade2TeamStats', teamsArray);
+}
+
+async function fetchGrade3Data() {
+  const valueRanges = await fetchData(grade3Sheet, [scheduleRange, statsRange]);
+
+  const scheduleArray = valueRanges[0].values;
+  const teamsArray = buildObj(valueRanges[1].values);
+
+  saveDataArray('grade3Schedule', scheduleArray);
+  saveDataArray('grade3TeamStats', teamsArray);
 }
 
 console.log('Fetching spreadsheet data');
-fetchFoursData();
-fetchBearData();
+fetchGrade1Data();
+fetchGrade2Data();
+fetchGrade3Data();
