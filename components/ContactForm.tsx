@@ -57,7 +57,7 @@ export default function FreeTrialForm() {
         </label>
       </div>
       <Stack spacing={3}>
-        <FormControl isRequired>
+        <FormControl>
           <FormLabel htmlFor="contact_name">Name</FormLabel>
           <Input
             variant="wiha"
@@ -68,7 +68,7 @@ export default function FreeTrialForm() {
             onChange={handleChange}
           />
         </FormControl>
-        <FormControl isRequired>
+        <FormControl>
           <FormLabel htmlFor="email">Email address</FormLabel>
           <Input
             variant="wiha"
@@ -79,7 +79,7 @@ export default function FreeTrialForm() {
             onChange={handleChange}
           />
         </FormControl>
-        <FormControl isRequired>
+        <FormControl>
           <FormLabel htmlFor="message">Message</FormLabel>
           <Textarea
             variant="wiha"

@@ -67,7 +67,7 @@ export default function FreeTrialForm() {
             onChange={handleChange}
           />
         </FormControl>
-        <FormControl isRequired>
+        <FormControl>
           <FormLabel htmlFor="email">Email</FormLabel>
           <Input
             variant="wiha"
@@ -77,7 +77,7 @@ export default function FreeTrialForm() {
             onChange={handleChange}
           />
         </FormControl>
-        <FormControl isRequired>
+        <FormControl>
           <FormLabel htmlFor="source">Where did you hear about us?</FormLabel>
           <Input
             variant="wiha"
@@ -87,7 +87,7 @@ export default function FreeTrialForm() {
             onChange={handleChange}
           />
         </FormControl>
-        <FormControl isRequired>
+        <FormControl>
           <FormLabel htmlFor="skating-experience">
             Do you have any ice skating / ice hockey experience? (Note: no
             experience is needed)
@@ -101,7 +101,7 @@ export default function FreeTrialForm() {
             onChange={handleChange}
           />
         </FormControl>
-        <FormControl isRequired>
+        <FormControl>
           <FormLabel htmlFor="message">Your Message</FormLabel>
           <Textarea
             variant="wiha"
