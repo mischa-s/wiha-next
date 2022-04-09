@@ -58,12 +58,12 @@ export default function FreeTrialForm() {
       </div>
       <Stack spacing={3}>
         <FormControl isRequired>
-          <FormLabel htmlFor="name">Name</FormLabel>
+          <FormLabel htmlFor="contact_name">Name</FormLabel>
           <Input
             variant="wiha"
             type="input"
-            id="name"
-            name="name"
+            id="contact_name"
+            name="contact_name"
             required
             onChange={handleChange}
           />
