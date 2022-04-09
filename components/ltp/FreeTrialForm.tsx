@@ -58,24 +58,22 @@ export default function FreeTrialForm() {
       </div>
       <Stack spacing={3}>
         <FormControl isRequired>
-          <FormLabel htmlFor="parent_name">Parent‘s Name</FormLabel>
-          <Input
-            variant="wiha"
-            type="input"
-            id="parent_name"
-            name="parent_name"
-            required
-            onChange={handleChange}
-          />
-        </FormControl>
-        <FormControl isRequired>
           <FormLabel htmlFor="email">Email</FormLabel>
           <Input
             variant="wiha"
             type="email"
             id="email"
             name="email"
-            required
+            onChange={handleChange}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel htmlFor="parent_name">Parent‘s Name</FormLabel>
+          <Input
+            variant="wiha"
+            type="input"
+            id="parent_name"
+            name="parent_name"
             onChange={handleChange}
           />
         </FormControl>
@@ -86,7 +84,6 @@ export default function FreeTrialForm() {
             type="source"
             id="source"
             name="source"
-            required
             onChange={handleChange}
           />
         </FormControl>
