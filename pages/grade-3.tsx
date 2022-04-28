@@ -3,14 +3,14 @@ import GenericPage from '../components/GenericPage';
 import { GenericContentfulPageInterface } from '../types';
 import { fetchEntry } from '../utils/contentfulPages';
 
-import Schedule from '../components/Schedule';
+// import Schedule from '../components/Schedule';
 // import {
 //   TeamsTable,
 //   PlayersTable,
 //   GoaliesTable,
 // } from '../components/StatsTable';
 
-import scheduleData from '../sheetsData/grade2Schedule';
+// import scheduleData from '../sheetsData/grade2Schedule';
 // import teamsData from '../sheetsData/foursTeamStats';
 // import playersData from '../sheetsData/foursPlayerStats';
 // import goaliesData from '../sheetsData/foursGoalieStats';
@@ -28,11 +28,11 @@ function Grade3Children() {
         Team Standings
       </Heading> */}
       {/* <TeamsTable data={teamsData} /> */}
-      <Schedule
+      {/* <Schedule
         gameRenderer="fours"
         scheduleData={scheduleData}
         gameTimes={['7:30', '8:40']}
-      />
+      /> */}
       {/* <Heading
         id="player-stats"
         as="h2"
