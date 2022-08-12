@@ -112,16 +112,8 @@ const menuItems: MenuItemType[] = [
         label: 'Youth',
       },
       {
-        link: '/grade-1',
-        label: 'Grade 1',
-      },
-      {
-        link: '/grade-2',
-        label: 'Grade 2',
-      },
-      {
-        link: '/grade-3',
-        label: 'Grade 3',
+        link: '/adults',
+        label: 'Adult League',
       },
       {
         link: '/scrimmage',
@@ -279,14 +271,8 @@ function DesktopNav() {
             <Link href="/youth">
               <MenuItem>Youth</MenuItem>
             </Link>
-            <Link href="/grade-1">
-              <MenuItem>Grade 1</MenuItem>
-            </Link>
-            <Link href="/grade-2">
-              <MenuItem>Grade 2</MenuItem>
-            </Link>
-            <Link href="/grade-3">
-              <MenuItem>Grade 3</MenuItem>
+            <Link href="/adults">
+              <MenuItem>Adult League</MenuItem>
             </Link>
             <Link href="/scrimmage">
               <MenuItem>Scrimmage</MenuItem>

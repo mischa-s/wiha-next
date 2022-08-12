@@ -66,7 +66,7 @@ export default function Home({ fields, posts }: Props) {
 
       <Hero imageURL={imageURL}>
         <Flex justify="center" direction="row" wrap="wrap" w={[325, 450, 800]}>
-          <InternalLink href="/play">
+          <InternalLink href="/adults">
             <Button
               w={[325, 450, '40%']}
               mx={[0, 0, '2rem']}
@@ -75,7 +75,31 @@ export default function Home({ fields, posts }: Props) {
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
             >
-              Play Hockey
+              Adult League
+            </Button>
+          </InternalLink>
+          <InternalLink href="/women">
+            <Button
+              w={[325, 450, '40%']}
+              mx={[0, 0, '2rem']}
+              my={['1rem', '1rem', '2rem']}
+              h={[75, 100]}
+              fontSize={{ base: '20px', sm: '24px' }}
+              variant="cta"
+            >
+              Womens
+            </Button>
+          </InternalLink>
+          <InternalLink href="/ltp">
+            <Button
+              w={[325, 450, '40%']}
+              mx={[0, 0, '2rem']}
+              my={['1rem', '1rem', '2rem']}
+              h={[75, 100]}
+              fontSize={{ base: '20px', sm: '24px' }}
+              variant="cta"
+            >
+              Learn to Play (U12)
             </Button>
           </InternalLink>
           <InternalLink href="/youth">
@@ -87,31 +111,7 @@ export default function Home({ fields, posts }: Props) {
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
             >
-              Youth
-            </Button>
-          </InternalLink>
-          <InternalLink href="/adult_training">
-            <Button
-              w={[325, 450, '40%']}
-              mx={[0, 0, '2rem']}
-              my={['1rem', '1rem', '2rem']}
-              h={[75, 100]}
-              fontSize={{ base: '20px', sm: '24px' }}
-              variant="cta"
-            >
-              Adult Training
-            </Button>
-          </InternalLink>
-          <InternalLink href="/scrimmage">
-            <Button
-              w={[325, 450, '40%']}
-              mx={[0, 0, '2rem']}
-              my={['1rem', '1rem', '2rem']}
-              h={[75, 100]}
-              fontSize={{ base: '20px', sm: '24px' }}
-              variant="cta"
-            >
-              Scrimmage
+              Youth (U15 / U18)
             </Button>
           </InternalLink>
         </Flex>
