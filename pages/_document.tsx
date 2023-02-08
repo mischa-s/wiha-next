@@ -17,6 +17,7 @@ class CustomDocument extends Document {
 
   render() {
     const GA_TRACKING_ID = process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID;
+    const ADS_ID = process.env.GOOGLE_ADS_ID;
     return (
       <Html lang="en">
         <Head>
@@ -34,6 +35,7 @@ class CustomDocument extends Document {
                     gtag('config', '${GA_TRACKING_ID}', {
                     page_path: window.location.pathname,
                     });
+                    gtag('config', '${ADS_ID}');
                 `,
             }}
           />
