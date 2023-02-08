@@ -4,12 +4,12 @@ export default function Calendar() {
   const calendar = [
     {
       term: 'Term 1',
-      dates: '9th March - 6th April',
+      dates: '2th March - 6th April',
       time: '6pm - 7pm',
     },
     {
       term: 'Term 2',
-      dates: '27th April - 29th June',
+      dates: 'May 25 - 29th June',
       time: '6pm - 7pm',
     },
     {
