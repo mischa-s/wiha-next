@@ -115,10 +115,14 @@ const menuItems: MenuItemType[] = [
         link: '/adults',
         label: 'Adult League',
       },
-      // {
-      //   link: '/scrimmage',
-      //   label: 'Scrimmage',
-      // },
+      {
+        link: '/super_league',
+        label: 'Super League',
+      },
+      {
+        link: '/scrimmage',
+        label: 'Scrimmage',
+      },
     ],
   },
 ];
@@ -274,9 +278,12 @@ function DesktopNav() {
             <Link href="/adults">
               <MenuItem>Adult League</MenuItem>
             </Link>
-            {/* <Link href="/scrimmage">
+            <Link href="/super_league">
+              <MenuItem>Super League</MenuItem>
+            </Link>
+            <Link href="/scrimmage">
               <MenuItem>Scrimmage</MenuItem>
-            </Link> */}
+            </Link>
           </MenuList>
         </Menu>
         <Menu>

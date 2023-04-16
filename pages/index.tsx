@@ -102,7 +102,7 @@ export default function Home({ fields, posts }: Props) {
               Learn to Play (U12)
             </Button>
           </InternalLink>
-          <InternalLink href="/youth">
+          <InternalLink href="/super_league">
             <Button
               w={[325, 450, '40%']}
               mx={[0, 0, '2rem']}
@@ -111,7 +111,7 @@ export default function Home({ fields, posts }: Props) {
               fontSize={{ base: '20px', sm: '24px' }}
               variant="cta"
             >
-              Youth (U15 / U18)
+              Super League (U12)
             </Button>
           </InternalLink>
         </Flex>
