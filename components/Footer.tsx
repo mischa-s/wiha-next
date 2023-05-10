@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import { Button, Link as ExternalLink } from '@chakra-ui/react';
+import { Button, Link as ExternalLink, Heading } from '@chakra-ui/react';
 
 export default function Footer() {
   const FooterWrapper = styled.footer`
@@ -32,6 +32,12 @@ export default function Footer() {
     padding: 1rem;
   `;
 
+  const SupporterLogo = styled.img`
+    width: 12em;
+    margin: auto;
+    padding: 1rem;
+  `;
+
   const FooterPageLinks = styled.div`
     display: flex;
     justify-content: space-between;
@@ -54,6 +60,13 @@ export default function Footer() {
 
   return (
     <FooterWrapper>
+      <Heading color="yellow" size="lg" textAlign="center">
+        Proudly supported by:
+      </Heading>
+      <SupporterLogo
+        src="/supporter-logos/PCL_Logo_Web_Reversed.png"
+        alt="Pub Charity"
+      />
       <FooterLogo src="/wiha-logos/logo-horizontal.png" alt="WIHA" />
       <LinksWrapper>
         <FooterPageLinks>
