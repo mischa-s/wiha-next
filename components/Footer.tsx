@@ -58,16 +58,30 @@ export default function Footer() {
     justify-content: space-between;
   `;
 
+  const SupporterWrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    min-width: 23em;
+    justify-content: space-around;
+  `;
+
   return (
     <FooterWrapper>
+      <FooterLogo src="/wiha-logos/logo-horizontal.png" alt="WIHA" />
       <Heading color="yellow" size="lg" textAlign="center">
         Proudly supported by:
       </Heading>
-      <SupporterLogo
-        src="/supporter-logos/PCL_Logo_Web_Reversed.png"
-        alt="Pub Charity"
-      />
-      <FooterLogo src="/wiha-logos/logo-horizontal.png" alt="WIHA" />
+      <SupporterWrapper>
+        <SupporterLogo
+          src="/supporter-logos/PCL_Logo_Web_Reversed.png"
+          alt="Pub Charity"
+        />
+        <SupporterLogo
+          src="/supporter-logos/HMCT-logo.png"
+          alt="Hutt Mana Charitable Trust"
+        />
+      </SupporterWrapper>
       <LinksWrapper>
         <FooterPageLinks>
           <Link href="/">
