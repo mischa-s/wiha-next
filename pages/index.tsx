@@ -116,6 +116,22 @@ export default function Home({ fields, posts }: Props) {
           </InternalLink>
         </Flex>
       </Hero>
+      <Flex direction="column" align="center" bg="whiteAlpha.700">
+        <Box my="3rem" px="1.5rem" w={[350, 550, 700, 800]}>
+          <Heading as="h2" size="lg" textAlign="center" mb="3rem">
+            Upcoming hockey calendar
+          </Heading>
+          <iframe
+            title="WIHA calendar"
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Pacific%2FAuckland&showTz=1&showTitle=0&showPrint=0&showCalendars=0&mode=AGENDA&src=Y183YTgxMzA2NTAwNmM0ZjIzZGYzMWIyMWYxN2RlNDA4MWY1ZjdlNTIzZWFkMWZhNzQ4NjhmYmQ5ZmVlMDU3NzE1QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23616161"
+            width="100%"
+            height="600"
+            frameBorder="0"
+            scrolling="no"
+          />
+        </Box>
+      </Flex>
+
       <Flex direction="column" align="center">
         <Box mt="3rem" px="1.5rem" w={[350, 550, 700, 800]}>
           <Heading as="h1" size="lg" textAlign="center">
